@@ -9,8 +9,8 @@
 | encrypted_password | string | null: false               |
 
 ### Association
-
-- has_many  :places
+- has_many  :place_users
+- has_many  :place, through: :place_users
 - has_many  :specs
 
 ## placesテーブル
@@ -22,15 +22,28 @@
 
 
 ### Association
+- has_many  :place_users
+- has_many  :users, through: :place_users
+- has_many  :specs
+
+## place_users_テーブル
+
+| Column | Type       | Options                        |
+| ------ | -----------| ------------------------------ |
+| user   | references | foreign_key: true, null: false |
+| place  | references | foreign_key: true, null: false |
+
+
+### Association
 
 - belongs_to  :user
-- has_many    :place
+- belongs_to  :place
 
 ## specsテーブル
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| user_id        | references | foreign_key: true, null: false |
-| place_id       | references | foreign_key: true, null: false |
+| user           | references | foreign_key: true, null: false |
+| place          | references | foreign_key: true, null: false |
 | download       | integer    | null: false                    |
 | upload         | integer    | null: false                    |
 | line_kinds_id  | integer    | null: false                    |
