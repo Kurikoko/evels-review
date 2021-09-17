@@ -1,5 +1,7 @@
-<%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
+  <div class='header-left'>
+    <p class='logo'><%= link_to 'Evels Review', "/" %></p>
+  </div>
   <%# <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
     <%# <form class="search-form" action="#">
@@ -14,8 +16,9 @@
       <%# <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li> 
       <%# <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
     <%# </ul> %>
-    <ul class='lists-right'>
+    <ul class='header-right'>
     <% if user_signed_in? %>
+      <li><%= link_to '新規会場登録', "#", class: "new-room" %></li>
       <li><%= link_to current_user.name, "user/#{current_user.id}", class: "user-name" %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
     <% else %>

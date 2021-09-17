@@ -1,1 +1,44 @@
 <%= render "shared/header" %>
+<div class="main">
+  <div class="title-contents">
+    <h1 class="main-title">オンラインイベントの回線スピードの参考に</h1>
+    <p class="service-explain">会場にいかなくても実際の回線スピードを知ることができます</p>
+  </div>
+  
+  <%# 検索用フォーム 実装時コメントアウト外す %>
+  <%# <div class="search-bar-contents">
+    <%= form_with model: @place, url: , id: 'search-form', local: true do |f| %>
+    <%# <% end %>
+  <%# </div> %>
+
+  <%# <div class="place-contents">
+    <p class="new-place-title"> あたらしく登録されたイベント会場 </p>
+    <ul class="place-lists">
+      <% @places.each do |place|%>
+        <%# <li class="place-list">
+          <div class="place-header">
+            <%= link_to "会場の詳細画面パス"%>
+            <%# <div class="place-header-left">
+              <%= image_tag place.image, class: "place-img"%>
+            <%# </div>
+            <div class="place-header-rigth">
+              <%= link_to "会場の詳細画面パス"%>
+              <%# <p class="place-name">
+                <%= place.name %>
+              <%# </p>
+              <p class="place-area">
+                <%= place.area-id %>
+              <%# </p>
+            </div>
+          </div>
+          <p class= "download-speed">
+            <%= place.spec.download%>
+          <%# </p>
+          <p class= "upload-speed">
+            <%= place.spec.upload%>
+          <%# </p>
+        </li>
+      <% end %>
+    <%# </ul>
+  </div> %> 
+</div>
