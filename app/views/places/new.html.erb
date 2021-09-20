@@ -12,7 +12,6 @@
       <div class="image-upload">  
         <div class="contents-title">
           会場画像
-          <span class="must">必須</span>
         </div>
         <div class="click-upload">
           <p> クリックしてアップロード</p>
@@ -23,14 +22,43 @@
         <div class="contents-title">
           会場の名前
           <span class="must">必須</span>
-          <%= f.text_area :place_name, id: "place-name", class: "place-name-input", placeholder: "会場名", maxlength: "30" %>
+          <%= f.text_area :place_name, id: "place-name", class: "place-text-input", placeholder: "会場名", maxlength: "30" %>
         </div>
       </div>
       <div class="place-area">  
-        <div class="place-area">
+        <div class="contents-title">
           会場の場所（都内）
-          <span class="must">必須</span>
           <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class: "select-box", id: "area-category" }) %>
+        </div>
+      </div>
+      <div class="place-carrier">  
+        <div class="contents-title">
+          回線サービス
+          <%= f.text_area :carrier, id: "carrier", class: "place-text-input", placeholder: "(例)アルテリア光", maxlength: "30" %>
+        </div>
+      </div>
+      <div class="place-line-kinds">  
+        <div class="contents-title">
+          回線種別
+          <%= f.collection_select(:line_kinds_id, LineKinds.all, :id, :name, {}, {class: "select-box", id: "line-kinds-category" }) %>
+        </div>
+      </div>
+      <div class="place-backup-line">  
+        <div class="contents-title">
+          予備回線
+          <%= f.collection_select(:backup_line_id, BackupLine.all, :id, :name, {}, {class: "select-box", id: "backup-line-category" }) %>
+        </div>
+      </div>
+      <div class="place-fee">  
+        <div class="contents-title">
+          費用
+          <%= f.collection_select(:fee_id, Fee.all, :id, :name, {}, {class: "select-box", id: "fee-category" }) %>
+        </div>
+      </div>
+      <div class="place-wifi">  
+        <div class="contents-title">
+          Wifi
+          <%= f.collection_select(:wifi_id, Wifi.all, :id, :name, {}, {class: "select-box", id: "wifi-category" }) %>
         </div>
       </div>
       <div class="place-create-btn">

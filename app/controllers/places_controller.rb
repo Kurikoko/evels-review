@@ -19,6 +19,6 @@ class PlacesController < ApplicationController
 
   private
   def place_params
-    params.require(:place).permit(:image,:area_id,:place_name)
+    params.require(:place).permit(:image,:area_id,:place_name, :carrier, :line_kinds_id, :fee_id, :backup_line_id, :wifi_id)
   end
 end
