@@ -11,34 +11,34 @@
     <%# <% end %>
   <%# </div> %>
 
-  <%# <div class="place-contents">
+  <div class="place-contents">
     <p class="new-place-title"> あたらしく登録されたイベント会場 </p>
     <ul class="place-lists">
       <% @places.each do |place|%>
-        <%# <li class="place-list">
+        <li class="place-list">
           <div class="place-header">
             <%= link_to "会場の詳細画面パス"%>
-            <%# <div class="place-header-left">
+             <div class="place-header-left">
               <%= image_tag place.image, class: "place-img"%>
-            <%# </div>
+             </div>
             <div class="place-header-rigth">
               <%= link_to "会場の詳細画面パス"%>
-              <%# <p class="place-name">
-                <%= place.name %>
-              <%# </p>
+               <p class="place-name">
+                <%= place.place_name %>
+              </p>
               <p class="place-area">
                 <%= place.area_id %>
-              <%# </p>
+              </p>
             </div>
           </div>
           <p class= "download-speed">
-            <%= place.spec.download%>
-          <%# </p>
+            <%# <%= place.spec.download%>
+          </p>
           <p class= "upload-speed">
-            <%= place.spec.upload%>
-          <%# </p>
+            <%# <%= place.spec.upload%>
+          </p>
         </li>
       <% end %>
-    <%# </ul>
-  </div> %> 
+    </ul>
+  </div> 
 </div>

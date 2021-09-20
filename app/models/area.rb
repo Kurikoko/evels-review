@@ -1,6 +1,6 @@
-class Area < Activehash::Base
+class Area < ActiveHash::Base
   self.data= [
-    { id: 1, name: '---'}
+    { id: 1, name: '---'},
     { id: 2, name: "千代田区"},
     { id: 3, name: "中央区"},
     { id: 4, name: "港区"},

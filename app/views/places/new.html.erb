@@ -1,0 +1,42 @@
+<%# 後からヘッダー消すかも %>
+<%= render "shared/second-header" %>
+
+<div class="place-create-contents">
+  <%# 後からロゴ入れるかも %>
+  <div class="place-create-main">
+    <p class="title">
+      会場をあたらしく登録
+    </p>
+    <%= form_with model: @place, url:places_path, local: true do |f| %>
+      <%= render "shared/error_messages", model: f.object %>
+      <div class="image-upload">  
+        <div class="contents-title">
+          会場画像
+          <span class="must">必須</span>
+        </div>
+        <div class="click-upload">
+          <p> クリックしてアップロード</p>
+          <%= f.file_field :image, id: "place-image" %>
+        </div>
+      </div>
+      <div class="place-name">  
+        <div class="contents-title">
+          会場の名前
+          <span class="must">必須</span>
+          <%= f.text_area :place_name, id: "place-name", class: "place-name-input", placeholder: "会場名", maxlength: "30" %>
+        </div>
+      </div>
+      <div class="place-area">  
+        <div class="place-area">
+          会場の場所（都内）
+          <span class="must">必須</span>
+          <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class: "select-box", id: "area-category" }) %>
+        </div>
+      </div>
+      <div class="place-create-btn">
+        <%= f.submit "登録する", class: "submit" %>
+        <%= link_to "もどる", root_path, class: "back-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
