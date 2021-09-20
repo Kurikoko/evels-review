@@ -57,7 +57,6 @@ class Area < ActiveHash::Base
     { id: 55, name: "八丈島"},
     { id: 56, name: "小笠原村"}
   ]
-
   include ActiveHash::Associations
   has_many :places
 end

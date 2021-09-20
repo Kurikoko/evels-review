@@ -11,20 +11,24 @@
 ### Association
 - has_many  :place_users
 - has_many  :place, through: :place_users
-- has_many  :specs
+- has_many  :reviews
 
 ## placesテーブル
 
-| Column     | Type    | Options     |
-| ---------- | --------| ----------- |
-| place_name | string  | null: false |
-| area_id    | integer | null: false |
-
+| Column         | Type    | Options     |
+| -------------- | ------- | ----------- |
+| place_name     | string  | null: false |
+| area_id        | integer | null: false |
+| line_kinds_id  | integer | null: false |
+| carrier        | string  | null: false |
+| fee_id         | integer | null: false |
+| backup_line_id | integer | null: false |
+| wifi_id        | integer | null: false |
 
 ### Association
 - has_many  :place_users
 - has_many  :users, through: :place_users
-- has_many  :specs
+- has_many  :reviews
 
 ## place_users_テーブル
 
@@ -39,18 +43,13 @@
 - belongs_to  :user
 - belongs_to  :place
 
-## specsテーブル
+## reviewsテーブル
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | user           | references | foreign_key: true, null: false |
 | place          | references | foreign_key: true, null: false |
 | download       | integer    | null: false                    |
 | upload         | integer    | null: false                    |
-| line_kinds_id  | integer    | null: false                    |
-| carrier        | string     |                                |
-| usage_fee      | integer    |                                |
-| backup_line_id | integer    | null: false                    |
-| wifi_id        | integer    | null: false                    |
 | comment        | text       | null: false                    |
 
 ### Association
