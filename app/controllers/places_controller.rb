@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   
   def index
-    @places = Place.all
+    @places = Place.all.order(created_at: :DESC)
   end
 
   def new
@@ -10,6 +10,11 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.create(place_params)
+    if @place.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
