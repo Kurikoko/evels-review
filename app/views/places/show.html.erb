@@ -1,1 +1,54 @@
 <%= render "shared/second-header" %>
+<div class= "detail-contents">
+  <div class= "title-contents">
+    <p class= "place-title">
+      <%= @place.place_name%>
+    </p>
+    <div class= "area">
+      <%= link_to "#{@place.area.name}", "#" %>
+    </div>
+  </div>
+  <div class= "image-contents">
+    <div class= "main-image">
+      <%= image_tag @place.image.variant(resize: '1000x1000'), class: 'place-image' %>
+    </div>
+    <%# <div class= "sub-image">
+      <% @reviews.each do |review|%>
+      <%# <ul class= "review-images"> %>
+        <%# <li class= "review-image"> %>
+        <%# <%= review.image%>
+        <%# </li> %>
+      <%# </ul> %>
+    <%# </div> %>
+  </div>
+  <div class= "line-speed">
+    <div class= "download">
+      <div class= line-speed-title>
+        Wired Average Speed
+      </div>
+      <div class= "speed-contents">
+        <span class= "line-speed-title">DOWNLOAD</span>
+        <span id= "download-average" ></span>
+        <span class= "speed">Mgps</span>
+      </div>
+    </div>
+    <div class= "upload">
+      <div class= line-speed-title>
+        Wired Average Speed
+      </div>
+      <div class= "speed-contents">
+        <span class= "line-speed-title">UPLOAD</span>
+        <span id= "upload-average" ></span>
+        <span class= "speed">Mgps</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class = "review-wrapper">
+  <div class= "review-top-wrapper">
+    <div class= "review-title">
+    レビュー
+    </div>
+    <%= link_to "レビューする" %>
+  </div>
+</div>

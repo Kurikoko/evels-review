@@ -48,8 +48,8 @@
 | -------------- | ---------- | ------------------------------ |
 | user           | references | foreign_key: true, null: false |
 | place          | references | foreign_key: true, null: false |
-| download       | integer    | null: false                    |
-| upload         | integer    | null: false                    |
+| download       | float      | null: false                    |
+| upload         | float      | null: false                    |
 | comment        | text       | null: false                    |
 
 ### Association

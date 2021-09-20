@@ -19,7 +19,7 @@
           <div class="place-header">
             <%= link_to place_path(place.id) do %>
             <div class="place-header-left">
-              <%= image_tag place.image, class: "place-img"%>
+              <%= image_tag place.image.variant(resize: '500x500'), class: "place-img"%>
             </div>
             <% end %>
             <div class="place-header-rigth">
