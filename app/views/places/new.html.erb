@@ -61,7 +61,7 @@
           <%= f.collection_select(:wifi_id, Wifi.all, :id, :name, {}, {class: "select-box", id: "wifi-category" }) %>
         </div>
       </div>
-      <div class="place-create-btn">
+      <div class="create-btn">
         <%= f.submit "登録する", class: "submit" %>
         <%= link_to "もどる", root_path, class: "back-btn" %>
       </div>

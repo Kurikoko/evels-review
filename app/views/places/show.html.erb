@@ -21,8 +21,8 @@
       <%# </ul> %>
     <%# </div> %>
   </div>
-  <div class= "line-speed">
-    <div class= "download">
+  <div class= "ave-line-speed">
+    <div class= "ave-download">
       <div class= line-speed-title>
         Wired Average Speed
       </div>
@@ -32,7 +32,7 @@
         <span class= "speed">Mgps</span>
       </div>
     </div>
-    <div class= "upload">
+    <div class= "ave-upload">
       <div class= line-speed-title>
         Wired Average Speed
       </div>
@@ -49,6 +49,42 @@
     <div class= "review-title">
     レビュー
     </div>
-    <%= link_to "レビューする" %>
+    <div class= "review-btn">
+    <%= link_to "レビューする", new_place_review_path(@place.id) %>
+  </div>
+  <div class= "review-main">
+    <%# <%= @reviews.each do |review|%>
+      <%# <div class= "upper-reviews"> %>
+        <%# <div class= "upper-left"> %>
+          <%# <div class= "download-speed"> %>
+            <%# <span class= "line-speed-title">DOWNLOAD</span>
+            <span ><%= review.download %></span>
+            <%# <span class= "speed">Mgps</span>
+          </div>
+          <div class= "upload-speed">
+            <span class= "line-speed-title">UPLOAD</span>
+            <span ><%= review.upload %></span>
+            <%# <span class= "speed">Mgps</span>
+          </div>
+        </div>
+        <div class= "upper-right">
+          <%= image_tag review.image.variant(resize: '200x200') %>
+        <%# </div>
+      </div>
+      <div class= "bottom-reviews">
+        <div class= "bottom-left">
+          <%= review.comment %>
+        <%# </div>
+        <div class= "bottom-right">
+          <p class= "user-name">
+            <%= spec.user_id.name %>
+          <%# </p>
+          <p class= "user-created-date" >
+            投稿日時
+            <span><%= spec.user_id.name %></span>
+          <%# </p>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
