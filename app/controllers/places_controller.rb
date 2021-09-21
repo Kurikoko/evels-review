@@ -20,6 +20,7 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @reviews = Review.where( "place_id = #{@place.id}")
   end
 
   private

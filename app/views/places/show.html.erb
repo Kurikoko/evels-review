@@ -10,16 +10,18 @@
   </div>
   <div class= "image-contents">
     <div class= "main-image">
-      <%= image_tag @place.image.variant(resize: '1000x1000'), class: 'place-image' %>
+      <%= image_tag @place.image.variant(resize: '1200x1200'), class: 'place-image' %>
     </div>
-    <%# <div class= "sub-image">
+    <div class= "sub-image">
+      
+      <ul class= "review-images">
       <% @reviews.each do |review|%>
-      <%# <ul class= "review-images"> %>
-        <%# <li class= "review-image"> %>
-        <%# <%= review.image%>
-        <%# </li> %>
-      <%# </ul> %>
-    <%# </div> %>
+        <li class= "review-image">
+        <%= image_tag review.image.variant(resize: '300x300')%>
+        </li>
+      <% end %>
+      </ul>
+    </div>
   </div>
   <div class= "ave-line-speed">
     <div class= "ave-download">
@@ -50,39 +52,49 @@
     レビュー
     </div>
     <div class= "review-btn">
-    <%= link_to "レビューする", new_place_review_path(@place.id) %>
+    <%= link_to "レビューする", new_place_review_path(@place) %>
   </div>
   <div class= "review-main">
-    <%# <%= @reviews.each do |review|%>
-      <%# <div class= "upper-reviews"> %>
-        <%# <div class= "upper-left"> %>
-          <%# <div class= "download-speed"> %>
-            <%# <span class= "line-speed-title">DOWNLOAD</span>
+    <% @reviews.each do |review| %>
+      <div class= "upper-reviews">
+        <div class= "upper-left">
+          <div class= "download-speed">
+            <span class= "line-speed-title">DOWNLOAD</span>
             <span ><%= review.download %></span>
-            <%# <span class= "speed">Mgps</span>
+            <span class= "speed">Mgps</span>
           </div>
           <div class= "upload-speed">
             <span class= "line-speed-title">UPLOAD</span>
             <span ><%= review.upload %></span>
-            <%# <span class= "speed">Mgps</span>
+            <span class= "speed">Mgps</span>
           </div>
         </div>
-        <div class= "upper-right">
-          <%= image_tag review.image.variant(resize: '200x200') %>
-        <%# </div>
+        <% if review.image.attached? %>
+          <div class= "upper-right">
+            <%= image_tag review.image.variant(resize: '200x200') %>
+          </div>
+        <% end %>
       </div>
       <div class= "bottom-reviews">
         <div class= "bottom-left">
           <%= review.comment %>
-        <%# </div>
+        </div>
+        <div class= "bottom-center">
+          <div class= "review-edit">
+            <%= link_to "編集", edit_place_review_path(@place.id, review.id) %>
+          </div>
+          <div class= "review-delete">
+            <%= link_to "削除", place_review_path(@place.id, review.id), method: :delete, data: { confirm: "削除しますか"} %>
+          </div>
+        </div>
         <div class= "bottom-right">
           <p class= "user-name">
-            <%= spec.user_id.name %>
-          <%# </p>
+            <%= review.user.name %>
+          </p>
           <p class= "user-created-date" >
             投稿日時
-            <span><%= spec.user_id.name %></span>
-          <%# </p>
+            <span><%= review.updated_at %></span>
+          </p>
         </div>
       </div>
     <% end %>
