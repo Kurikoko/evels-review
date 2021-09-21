@@ -1,4 +1,4 @@
-<header class='top-page-header'>
+<header class= "d-flex justify-content-between">
   <div class='header-left'>
     <p class='logo'><%= link_to 'Evels Review', "/" %></p>
   </div>
@@ -16,7 +16,7 @@
       <%# <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li> 
       <%# <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
     <%# </ul> %>
-    <ul class='header-right'>
+    <ul class='d-flex'>
     <% if user_signed_in? %>
       <li><%= link_to '新規会場登録', new_place_path, class: "new-room" %></li>
       <li><%= link_to current_user.name, "user/#{current_user.id}", class: "user-name" %></li>
