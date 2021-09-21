@@ -1,0 +1,90 @@
+<%= render "shared/second-header" %>
+<div class= "detail-contents">
+  <div class= "title-contents">
+    <p class= "place-title">
+      <%= @place.place_name%>
+    </p>
+    <div class= "area">
+      <%= link_to "#{@place.area.name}", "#" %>
+    </div>
+  </div>
+  <div class= "image-contents">
+    <div class= "main-image">
+      <%= image_tag @place.image.variant(resize: '1000x1000'), class: 'place-image' %>
+    </div>
+    <%# <div class= "sub-image">
+      <% @reviews.each do |review|%>
+      <%# <ul class= "review-images"> %>
+        <%# <li class= "review-image"> %>
+        <%# <%= review.image%>
+        <%# </li> %>
+      <%# </ul> %>
+    <%# </div> %>
+  </div>
+  <div class= "ave-line-speed">
+    <div class= "ave-download">
+      <div class= line-speed-title>
+        Wired Average Speed
+      </div>
+      <div class= "speed-contents">
+        <span class= "line-speed-title">DOWNLOAD</span>
+        <span id= "download-average" ></span>
+        <span class= "speed">Mgps</span>
+      </div>
+    </div>
+    <div class= "ave-upload">
+      <div class= line-speed-title>
+        Wired Average Speed
+      </div>
+      <div class= "speed-contents">
+        <span class= "line-speed-title">UPLOAD</span>
+        <span id= "upload-average" ></span>
+        <span class= "speed">Mgps</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class = "review-wrapper">
+  <div class= "review-top-wrapper">
+    <div class= "review-title">
+    レビュー
+    </div>
+    <div class= "review-btn">
+    <%= link_to "レビューする", new_place_review_path(@place.id) %>
+  </div>
+  <div class= "review-main">
+    <%# <%= @reviews.each do |review|%>
+      <%# <div class= "upper-reviews"> %>
+        <%# <div class= "upper-left"> %>
+          <%# <div class= "download-speed"> %>
+            <%# <span class= "line-speed-title">DOWNLOAD</span>
+            <span ><%= review.download %></span>
+            <%# <span class= "speed">Mgps</span>
+          </div>
+          <div class= "upload-speed">
+            <span class= "line-speed-title">UPLOAD</span>
+            <span ><%= review.upload %></span>
+            <%# <span class= "speed">Mgps</span>
+          </div>
+        </div>
+        <div class= "upper-right">
+          <%= image_tag review.image.variant(resize: '200x200') %>
+        <%# </div>
+      </div>
+      <div class= "bottom-reviews">
+        <div class= "bottom-left">
+          <%= review.comment %>
+        <%# </div>
+        <div class= "bottom-right">
+          <p class= "user-name">
+            <%= spec.user_id.name %>
+          <%# </p>
+          <p class= "user-created-date" >
+            投稿日時
+            <span><%= spec.user_id.name %></span>
+          <%# </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

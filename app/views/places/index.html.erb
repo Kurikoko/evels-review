@@ -17,17 +17,20 @@
       <% @places.each do |place|%>
         <li class="place-list">
           <div class="place-header">
-            <%= link_to "会場の詳細画面パス"%>
-             <div class="place-header-left">
-              <%= image_tag place.image, class: "place-img"%>
-             </div>
+            <%= link_to place_path(place.id) do %>
+            <div class="place-header-left">
+              <%= image_tag place.image.variant(resize: '500x500'), class: "place-img"%>
+            </div>
+            <% end %>
             <div class="place-header-rigth">
-              <%= link_to "会場の詳細画面パス"%>
+              <%= link_to place_path(place.id) do %>
                <p class="place-name">
                 <%= place.place_name %>
               </p>
+              <% end %>
+              <%# エリア検索に伴ったリンクを貼る %>
               <p class="place-area">
-                <%= place.area_id %>
+                <%= place.area.name %>
               </p>
             </div>
           </div>
