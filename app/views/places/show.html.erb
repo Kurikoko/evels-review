@@ -79,7 +79,7 @@
         </div>
         <div class= "bottom-center">
           <div class= "review-edit">
-            <%= link_to "編集", review_path %>
+            <%= link_to "編集", edit_place_review_path(@place.id, review.id) %>
           </div>
           <div class= "review-delete">
             <%= link_to "削除", place_review_path(@place.id, review.id), method: :delete, data: { confirm: "削除しますか"} %>

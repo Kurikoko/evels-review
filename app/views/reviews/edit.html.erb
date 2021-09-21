@@ -8,11 +8,14 @@
     <p class="title">
       <%= @place.place_name %>
     </p>
+    <p class= "edit">
+    レビューを編集する
+    </p>
     <%= form_with(model: [@place, @review], local: true) do |f| %>
       <%= render "shared/error_messages", model: f.object %>
       <div class="image-upload">  
         <div class="contents-title">
-          画像を投稿する
+          画像を更新する
         </div>
         <div class="click-upload">
           <p> クリックしてアップロード</p>
@@ -43,7 +46,7 @@
       </div>
       <div class="create-btn">
         <%= f.submit "レビューする", class: "submit" %>
-        <%= link_to "もどる", root_path, class: "back-btn" %>
+        <%= link_to "もどる", place_path(@place), class: "back-btn" %>
       </div>
     <% end %>
   </div>
