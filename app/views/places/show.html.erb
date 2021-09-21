@@ -10,16 +10,18 @@
   </div>
   <div class= "image-contents">
     <div class= "main-image">
-      <%= image_tag @place.image.variant(resize: '1000x1000'), class: 'place-image' %>
+      <%= image_tag @place.image.variant(resize: '1200x1200'), class: 'place-image' %>
     </div>
-    <%# <div class= "sub-image">
+    <div class= "sub-image">
+      
+      <ul class= "review-images">
       <% @reviews.each do |review|%>
-      <%# <ul class= "review-images"> %>
-        <%# <li class= "review-image"> %>
-        <%# <%= review.image%>
-        <%# </li> %>
-      <%# </ul> %>
-    <%# </div> %>
+        <li class= "review-image">
+        <%= image_tag review.image.variant(resize: '300x300')%>
+        </li>
+      <% end %>
+      </ul>
+    </div>
   </div>
   <div class= "ave-line-speed">
     <div class= "ave-download">
