@@ -1,1 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+
+// ヘッダーCSS
+.logo {
+  font-size: 40px;
+}
+
+.nav-logo {
+  margin: 0 0 0 20px;
+}
+
+.nav-right {
+  margin-right: 50px;
+  font-style:inherit;
+}
+
+// トップページCSS
