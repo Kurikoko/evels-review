@@ -21,6 +21,8 @@ class PlacesController < ApplicationController
 
   def show
     @reviews = Review.where( "place_id = #{@place.id}")
+    @download_ave =  @reviews.average(:download).round(2)
+    @upload_ave =  @reviews.average(:upload).round(2)
   end
 
   private

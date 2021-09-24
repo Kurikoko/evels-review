@@ -1,45 +1,120 @@
 <%= render "shared/header" %>
 <div class="main">
   <div class="title-contents">
-    <h1 class="main-title">オンラインイベントの回線スピードの参考に</h1>
-    <p class="service-explain">会場にいかなくても実際の回線スピードを知ることができます</p>
+    <div class="main-title">
+      <h4 class="display-4 main-explan">オンラインイベントで失敗しないために</h4>
+    </div>
+    <div class="sub-contents">
+      <p class="sub-tilte">オンラインイベントを成功させるには・・・</p>
+      <p class="sub-explan">ネットワークの<span class="emphasize">「安定性」</span>と<span class="emphasize">「速度」</span>が重要です</p>
+    </div>
   </div>
-  
-  <%# 検索用フォーム 実装時コメントアウト外す %>
-  <%# <div class="search-bar-contents">
-    <%= form_with model: @place, url: , id: 'search-form', local: true do |f| %>
-    <%# <% end %>
-  <%# </div> %>
-
-  <div class="place-contents">
-    <p class="text-primary"> あたらしく登録されたイベント会場 </p>
+  <div class="middle-wrapper bg-light">
+    <div class="middle-contents">
+      <div class="middle-wrapper-title">
+        <p><span class="logo-style">Evels</span>でわかること</p>
+      </div>
+      <div class="middle-items">
+        <div class="middle-item">
+          <p class="middle-item-title">実測値がわかる！</p>
+          <div class="icon"><i class="fas fa-tachometer-alt"></i></div>
+          <p class="middle-item-text">レビューの平均値で速度がわかります。</p>
+        </div>
+        <div class="middle-item">
+          <p class="middle-item-title">レビューを投稿しよう！</p>
+          <div class="icon"><i class="far fa-comments"></i></div>
+          <p class="middle-item-text">過去の速度を参照できます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="area-container">
+    <div class="areas">
+    </div>
+  </div>
+  <div class="place-contents bg-light">
+    <p class="text-primary"> NEW HALLS </p>
     <ul class="place-lists">
       <% @places.each do |place|%>
         <li class="place-list">
           <div class="place-header">
-            <%= link_to place_path(place.id) do %>
             <div class="place-header-left">
-              <%= image_tag place.image.variant(resize: '500x500'), class: "place-img"%>
-            </div>
-            <% end %>
-            <div class="place-header-rigth">
               <%= link_to place_path(place.id) do %>
-               <p class="place-name">
-                <%= place.place_name %>
-              </p>
+                <%= image_tag place.image.variant(resize: '500x280', border: '2'), class: "place-img" %>
               <% end %>
-              <%# エリア検索に伴ったリンクを貼る %>
-              <p class="place-area">
-                <%= place.area.name %>
+            </div>
+            <div class="place-header-right">
+               <p class="place-name-area">
+                <span>
+                <%= link_to place_path(place.id), class:"place-name" do %>
+                  <%= place.place_name %>
+                <% end %>
+                </span>
               </p>
+              <%# エリア検索に伴ったリンクを貼る %>
+              <div class= "place-info">
+                <p class="place-area">
+                  エリア：
+                  <span><%= place.area.name %><span>
+                </p>
+                <p class="wifi">
+                  Free Wifi :
+                  <span><%= place.wifi.name %></span>
+                </p>
+              </div>
             </div>
           </div>
-          <p class= "download-speed">
-            <%# <%= place.reviews.download %> 
-          </p>
-          <p class= "upload-speed">
-            <%# <%= place.review.upload%>
-          </p>
+          <div class="place-bottoms">
+            <div class="place-bottom-left">
+              <% if place.reviews.exists?(place_id: "#{place.id}")%>
+              <div class="line-speed">
+                <div class="speed-container ">
+                  <p class= "speed-title">
+                    Download Average Speed
+                  </p>
+                  <div class="average" >
+                    <%= place.reviews.average(:download).round(2) %><span class="speed-mbps"> Mbps</span>
+                  </div>
+                </div>
+                <div class="speed-container">
+                    <p class= "speed-title">
+                      Upload Average Speed
+                    </p>
+                    <div class="average" >
+                      <%= place.reviews.average(:upload).round(2) %><span class="speed-mbps"> Mbps</span>
+                    </div>
+                </div>
+              </div>
+              <% else %>
+                <div class="none-review-container">
+                  <p class="none-review">未だレビューは投稿されていません</p>
+                    <%= link_to "詳細ページからレビュー",place_path(place.id), class:"btn btn-outline-secondary"%>
+                </div>
+              <% end %>
+            </div>
+            <div class="place-bottom-right">
+              <div class="info-items">
+                <div class="info-item">
+                    <p class="info-text">回線</p>
+                    <%= place.carrier%>
+                </div>
+                <div class="info-item">
+                    <p class="info-text">種別</p>
+                    <p class="<%=line_kinds_bad(place)%>">
+                    <%= place.line_kinds.name %>
+                    </p>
+                </div>
+                <div class="info-item">
+                   <p class="info-text">料金</p>
+                  <%= place.fee.name %>
+                </div>
+                <div class="info-item <%= backup_line_bad(place) %>">
+                  <span> 予備回線</span>
+                  <%= place.backup_line.name %>
+                </div>
+              </div>
+            </div>
+          <div>
         </li>
       <% end %>
     </ul>

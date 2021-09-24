@@ -1,8 +1,8 @@
-<%= render "shared/second-header" %>
+<%= render "shared/header" %>
 <div class= "detail-contents">
   <div class= "title-contents">
     <p class= "place-title">
-      <%= @place.place_name%>
+      <%= @place.place_name %>
     </p>
     <div class= "area">
       <%= link_to "#{@place.area.name}", "#" %>
@@ -21,6 +21,10 @@
         </li>
       <% end %>
       </ul>
+      <div class= "image-modal">
+        <%= image_tag '', class: "bigimg" %>
+        <i class="far fa-times-circle"></i>
+      </div>
     </div>
   </div>
   <div class= "ave-line-speed">
@@ -30,7 +34,7 @@
       </div>
       <div class= "speed-contents">
         <span class= "line-speed-title">DOWNLOAD</span>
-        <span id= "download-average" ></span>
+        <span id= "download-average" ><%= @download_ave %></span>
         <span class= "speed">Mgps</span>
       </div>
     </div>
@@ -40,7 +44,7 @@
       </div>
       <div class= "speed-contents">
         <span class= "line-speed-title">UPLOAD</span>
-        <span id= "upload-average" ></span>
+        <span id= "upload-average" ><%= @upload_ave %></span>
         <span class= "speed">Mgps</span>
       </div>
     </div>
@@ -71,7 +75,9 @@
         </div>
         <% if review.image.attached? %>
           <div class= "upper-right">
+            <div class="review-image">
             <%= image_tag review.image.variant(resize: '200x200') %>
+            </div>
           </div>
         <% end %>
       </div>
