@@ -10,4 +10,10 @@ module PlacesHelper
       return 'bad_color'
     end
   end
+
+  def wifi_bad(place)
+    if place.wifi_id == 3
+      return 'bad_color'
+    end
+  end
 end

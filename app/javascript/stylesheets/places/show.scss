@@ -1,0 +1,463 @@
+// 詳細ページCSS
+
+// モーダル
+.detail-review-image:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 1;
+}
+
+
+.bigimg {
+  position: absolute;
+  width: 100%;
+  max-width: 1000px;
+  top: 100px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+}
+
+.fa-times-circle {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  z-index: 2;
+}
+
+.fa-times-circle:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+// 詳細タイトル
+.detail-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-title-contents {
+  height: 17vh;
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  box-sizing: border-box;
+  padding: 20px;
+  margin: auto;
+  font-family: serif;
+  border-bottom: 1px solid grey;
+}
+
+.detail-area {
+  margin-left: auto;
+}
+.detail-area-name {
+  color: black;
+  font-size: 1.3vw;
+}
+
+.detail-area-name:hover {
+  text-decoration: none;
+  color: gray;
+}
+
+.detail-place-title {
+  font-size: 2.6vw;
+}
+
+// 詳細イメージ
+.detail-image-contents {
+  height: 64vh;
+  width: 70%;
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 30px;
+  box-sizing: border-box;
+}
+
+
+.detail-main-image-container {
+  width: 100%;
+  height: 80%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-main-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-place-image {
+  width: auto;
+  height: 50vh;
+  border-radius: 10px;
+}
+
+.detail-sub-image-container {
+  width: 100%;
+  height: 20%;
+  margin-top: 15px;
+
+
+}
+
+.review-images {
+  height: 100%;
+  width: 100%;
+}
+
+
+.detail-review-image {
+  width: auto;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 0.24%;
+
+}
+
+.detail-place-review-image {
+  height: auto;
+  width: 43%;
+  margin: auto;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid rgb(220, 220, 220);
+}
+
+// 詳細情報
+.detail-info-contents {
+  height: 33vh;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+/// 詳細回線速度情報
+
+
+.detail-ave-line-speed {
+  height: 60%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+}
+
+.detail-line-speed-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+  height: 100%;
+}
+
+.detail-line-speed {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.detail-speed-container {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-average {
+  font-size: 5vh;
+  color: #007bff;
+  font-weight: 100;
+  margin-right: 12%;
+}
+
+.detail-speed-title {
+  font-weight: 200;
+  font-size: 2.8vh;
+  margin-left: 12%;
+}
+
+.detail-speed-mbps {
+  font-weight: 200;
+  color: #888888;
+  font-size: 2.8vh;
+}
+/// 詳細会場情報
+
+.detail-info {
+  width: 100%;
+  height: 40%;
+}
+
+.detail-info-items {
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.detail-info-item {
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px solid rgb(211, 211, 211);
+  height: 80%;
+  width: 12%;
+  margin-right: 1px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  word-break: all;
+  margin-left: 10px;
+  text-align: center;
+  color: #007bff;
+  font-size: 1vw;
+  letter-spacing: 0.1em;
+}
+
+.detail-info-text {
+  position: absolute;
+  top: 6px;
+  left: 7px;
+  font-size: 10px;
+  border-bottom: 1px solid black;
+  color: black;
+}
+
+.bad_color {
+  color: rgb(248, 178, 178);
+}
+.detail-info-content {
+  overflow-wrap: normal;
+}
+
+// レビュー
+
+/// レビュータイトル
+.detail-review-contents {
+  margin-top: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-review-top-wrapper {
+  display: flex;
+  width: 70%;
+  height: 12vh;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.detail-review-title {
+  font-size: 3vw;
+  font-weight: 100;
+  color: #007bff;
+  margin-left: 7%;
+  border-bottom: 1px solid #007bff;
+  letter-spacing: 0.3em;
+}
+
+.detail-review-btn {
+  margin-right: 4%;
+}
+
+
+/// 個々のレビュー
+.detail-review-main {
+  width: 70%;
+  background-color: white;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  height: 40vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.detail-upper-reviews {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+}
+
+.detail-upper-left {
+  width: 60%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.detail-download-speed {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-upload-speed {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-review-speed {
+  font-size: 4.5vh;
+  color: #007bff;
+  font-weight: 100;
+  margin-right: 5%;
+}
+
+.detail-speed-title {
+  font-weight: 200;
+  font-size: 2.8vh;
+  margin-left: 10%;
+}
+
+.detail-speed-mbps {
+  font-weight: 200;
+  color: #888888;
+  font-size: 2.8vh;
+}
+
+.detail-upper-right {
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 2%;
+}
+
+.reviews-image {
+  width: auto;
+  height: 95%;
+  border-radius: 5px;
+  margin-top: 1%;
+}
+
+
+.detail-bottom-reviews {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 95%;
+  height: 50%;
+  border-top: 1px solid rgb(211, 209, 209);
+  box-sizing: border-box;
+  padding: 1.5% 0.6%;
+}
+
+.detail-bottom-left {
+  width: 70%;
+  height: 100%;
+  border: 1px solid rgb(187, 187, 187);
+  box-sizing: border-box;
+  padding: 1% 3%;
+  overflow-wrap: break-word;
+  overflow: scroll;
+  font-size: 17px;
+  border-radius: 3px;
+}
+
+.detail-bottom-center {
+  width: 10%;
+  height: 100%;
+  margin: 0 1% 0 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-review-custom-btn{
+  margin: 2% 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-outline-info {
+  height: 80%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.detail-bottom-right {
+
+  width: 23%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-left:auto ;
+
+}
+
+.detail-user-name {
+  margin-left: auto;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.detail-user-created-date {
+
+  display: flex;
+  justify-content: end;
+  margin-top: 10px;
+  font-size: 15px;
+
+}
+

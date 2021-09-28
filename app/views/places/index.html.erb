@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="place-contents bg-light">
-    <p class="text-primary"> NEW HALLS </p>
+    <p class="text-primary"> HALLS </p>
     <ul class="place-lists">
       <% @places.each do |place|%>
         <li class="place-list">
@@ -87,7 +87,7 @@
               </div>
               <% else %>
                 <div class="none-review-container">
-                  <p class="none-review">未だレビューは投稿されていません</p>
+                  <p class="none-review">レビューが投稿されていません</p>
                     <%= link_to "詳細ページからレビュー",place_path(place.id), class:"btn btn-outline-secondary"%>
                 </div>
               <% end %>
@@ -114,9 +114,10 @@
                 </div>
               </div>
             </div>
-          <div>
+          </div>
         </li>
       <% end %>
+     <%= paginate @places %>
     </ul>
   </div> 
 </div>
