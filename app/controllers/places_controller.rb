@@ -20,7 +20,13 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @reviews = Review.where( "place_id = #{@place.id}")
+    @reviews = Review.where( "place_id = #{@place.id}").order(created_at: :DESC).page(params[:page]).per(5)
+    @reviews_all = Review.where( "place_id = #{@place.id}").order(created_at: :DESC)
+
+    if @place.reviews.exists?(place_id: "#{@place.id}")
+      @download_ave =  @reviews_all.average(:download).round(2)
+      @upload_ave =  @reviews_all.average(:upload).round(2)
+    end
   end
 
   def search
