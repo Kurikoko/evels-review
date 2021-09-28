@@ -1,9 +1,10 @@
 // トップページCSS
 /// タイトルコンテンツ
 .title-contents {
-  height: 30vh;
+  height: 35vh;
   text-align: center;
   background-color: #FFF;
+  margin-bottom: 3%;
 }
 .main-title {
   height: 60%;
@@ -35,11 +36,13 @@
 
 /// ミドルコンテンツ
 .middle-wrapper {
-  height: 60vh;
+  height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  box-sizing: border-box;
+  padding: 5% 0;
 }
 
 .middle-contents {
@@ -60,6 +63,7 @@
 .logo-style {
   font-size: 40px;
   color: #007bff;
+  letter-spacing: 0.08em;
   font-weight: 250;
 }
 
@@ -94,10 +98,12 @@
 }
 
 .fa-tachometer-alt {
-  font-size: 16vw;
+  font-size: 15vw;
+  color: #007bff;
 }
 .fa-comments {
-  font-size: 17vw;
+  font-size: 16vw;
+  color: #007bff;
 }
 
 /// エリアコンテンツ
