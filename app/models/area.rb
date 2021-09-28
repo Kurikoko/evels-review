@@ -50,12 +50,7 @@ class Area < ActiveHash::Base
     { id: 48, name: "羽村市"},
     { id: 49, name: "あきる野市"},
     { id: 50, name: "西東京市"},
-    { id: 51, name: "西多摩郡"},
-    { id: 52, name: "大島町"},
-    { id: 53, name: "新島村"},
-    { id: 54, name: "三宅島"},
-    { id: 55, name: "八丈島"},
-    { id: 56, name: "小笠原村"}
+    { id: 51, name: "選択肢にない市・町・郡・離島"}
   ]
   include ActiveHash::Associations
   has_many :places

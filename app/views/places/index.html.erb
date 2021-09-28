@@ -13,6 +13,33 @@
 
   <div class="place-contents">
     <p class="new-place-title"> あたらしく登録されたイベント会場 </p>
+  <div class="middle-wrapper bg-light">
+    <div class="middle-contents">
+      <div class="middle-wrapper-title">
+        <p><span class="logo-style">Evels</span>でわかること</p>
+      </div>
+      <div class="middle-items">
+        <div class="middle-item">
+          <p class="middle-item-title">実測値がわかる！</p>
+          <div class="icon"><i class="fas fa-tachometer-alt"></i></div>
+          <p class="middle-item-text">過去の利用者投稿により理論値でなく実際の速度がわかる！</p>
+        </div>
+        <div class="middle-item">
+          <p class="middle-item-title">レビューを投稿しよう！</p>
+          <div class="icon"><i class="far fa-comments"></i></div>
+          <p class="middle-item-text">過去の速度を参照できるので再利用時の参考に！</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="area-container">
+    <div class="areas">
+      <%= render "shared/area_search" %>
+    </div>
+  </div>
+  <div class="place-contents bg-light">
+    <p class="text-primary"> HALLS </p>
+
     <ul class="place-lists">
       <% @places.each do |place|%>
         <li class="place-list">
