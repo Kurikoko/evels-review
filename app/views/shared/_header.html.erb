@@ -1,6 +1,6 @@
-<header class='top-page-header'>
-  <div class='header-left'>
-    <p class='logo'><%= link_to 'Evels Review', "/" %></p>
+<nav class="navbar navbar{-sm|md|-lg|-xl|-xxl} navbar-light bg-light justify-content-between" style= "height :10vh">
+  <div class="navbar-brend nav-logo" >
+    <%= link_to 'Evels', "/", class: "nav-link logo" %>
   </div>
   <%# <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
@@ -16,15 +16,25 @@
       <%# <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li> 
       <%# <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
     <%# </ul> %>
-    <ul class='header-right'>
-    <% if user_signed_in? %>
-      <li><%= link_to '新規会場登録', new_place_path, class: "new-room" %></li>
-      <li><%= link_to current_user.name, "user/#{current_user.id}", class: "user-name" %></li>
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-    <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-    <% end %>
-    </ul>
+      <ul class="nav nav-right">
+      <% if user_signed_in? %>
+        <li class="btn btn-sm btn-white"><%= link_to  new_place_path, class: "nav-link text-dark" do%>
+        <p>会場登録</p>
+        <i class="fas fa-hotel"></i><% end %></li>
+        <li class="btn btn-sm btn-white"><%= link_to  "user/#{current_user.id}", class: "nav-link text-dark" do %>
+        <p><%= current_user.name %></p>
+        <i class="fas fa-user"></i><% end %></li>
+        <li class="btn btn-sm btn-white"><%= link_to  destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
+        <p>ログアウト</p>
+        <i class="fas fa-sign-out-alt"></i><% end %></li>
+      <% else %>
+        <li class="btn btn-sm btn-white"><%= link_to new_user_session_path, class: "nav-link text-dark" do %>
+        <p>ログイン</p>
+        <i class="fas fa-sign-in-alt"></i><% end %></li>
+        <li class="btn btn-sm btn-white"><%= link_to new_user_registration_path, class: "nav-link text-dark" do %>
+        <p>新規登録</p>
+        <i class="fas fa-user-plus"></i><% end %></li>
+      <% end %>
+      </ul>
   </div>
-</header>
+</nav>

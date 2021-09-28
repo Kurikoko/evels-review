@@ -1,102 +1,156 @@
-<%= render "shared/second-header" %>
+<%= render "shared/header" %>
+<%# 詳細画面 %>
 <div class= "detail-contents">
-  <div class= "title-contents">
-    <p class= "place-title">
-      <%= @place.place_name%>
+  <div class= "detail-title-contents">
+    <p class= "detail-place-title">
+      <%= @place.place_name %>
     </p>
-    <div class= "area">
-      <%= link_to "#{@place.area.name}", "#" %>
+    <div class= "detail-area">
+      <span>  エリア:</span>
+      <%= link_to "#{@place.area.name}", "#", class: "detail-area-name" %>
     </div>
   </div>
-  <div class= "image-contents">
-    <div class= "main-image">
-      <%= image_tag @place.image.variant(resize: '1200x1200'), class: 'place-image' %>
+
+  <%# 詳細画像 %>
+  <div class= "detail-image-contents bg-light">
+    <div class= "detail-main-image-container">
+      <div class="detail-main-image">
+        <%= image_tag @place.image, class: 'detail-place-image' %>
+      </div>
     </div>
-    <div class= "sub-image">
-      
+    <div class= "detail-sub-image-container">
       <ul class= "review-images">
-      <% @reviews.each do |review|%>
-        <li class= "review-image">
-        <%= image_tag review.image.variant(resize: '300x300')%>
+      <% @reviews_all.each do |review_image|%>
+        <li class= "detail-review-image">
+        <%= image_tag review_image.image, class: 'detail-place-review-image' %>
         </li>
       <% end %>
       </ul>
     </div>
+    <div class= "image-modal">
+        <%= image_tag '', class: "bigimg" %>
+        <i class="far fa-times-circle"></i>
+    </div>
   </div>
-  <div class= "ave-line-speed">
-    <div class= "ave-download">
-      <div class= line-speed-title>
-        Wired Average Speed
-      </div>
-      <div class= "speed-contents">
-        <span class= "line-speed-title">DOWNLOAD</span>
-        <span id= "download-average" ></span>
-        <span class= "speed">Mgps</span>
+
+  <%# 詳細情報 %>
+  <div class="detail-info-contents bg-light">
+    <%# 詳細回線スピード %>
+    <div class= "detail-ave-line-speed">
+      <div class="detail-line-speed-container">
+        <% if @place.reviews.exists?(place_id: "#{@place.id}")%>
+        <div class="detail-line-speed">
+          <div class="detail-speed-container ">
+            <p class= "detail-speed-title">
+              Download Average Speed
+            </p>
+            <div class="detail-average" >
+              <%= @download_ave %><span class="detail-speed-mbps"> Mbps</span>
+            </div>
+          </div>
+          <div class="detail-speed-container">
+              <p class= "detail-speed-title">
+                Upload Average Speed
+              </p>
+              <div class="detail-average" >
+                <%= @upload_ave %><span class="detail-speed-mbps"> Mbps</span>
+              </div>
+          </div>
+        </div>
+        <% else %>
+          <div class="none-review-container">
+            <p class="none-review">レビューが投稿されていません
+          </div>
+        <% end %>
       </div>
     </div>
-    <div class= "ave-upload">
-      <div class= line-speed-title>
-        Wired Average Speed
-      </div>
-      <div class= "speed-contents">
-        <span class= "line-speed-title">UPLOAD</span>
-        <span id= "upload-average" ></span>
-        <span class= "speed">Mgps</span>
+    <%# 詳細情報会場 %>
+    <div class="detail-info">
+      <div class="detail-info-items">
+        <div class="detail-info-item">
+            <p class="detail-info-text">回線</p>
+            <%= @place.carrier%>
+        </div>
+        <div class="detail-info-item">
+            <p class="detail-info-text">種別</p>
+            <p class="<%=line_kinds_bad(@place)%>">
+            <%= @place.line_kinds.name %>
+            </p>
+        </div>
+        <div class="detail-info-item">
+            <p class="detail-info-text">料金</p>
+          <%= @place.fee.name %>
+        </div>
+        <div class="detail-info-item <%= backup_line_bad(@place) %>">
+          <span> 予備回線</span>
+          <%= @place.backup_line.name %>
+        </div>
+        <div class="detail-info-item <%= wifi_bad(@place) %>">
+          <span> Free Wifi&nbsp;</span>
+          <%= @place.wifi.name %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<div class = "review-wrapper">
-  <div class= "review-top-wrapper">
-    <div class= "review-title">
-    レビュー
+
+<%# レビュー画面 %>
+<div class = "detail-review-contents bg-light">
+  <div class= "detail-review-top-wrapper">
+    <div class= "detail-review-title">
+    Reviews
     </div>
-    <div class= "review-btn">
-    <%= link_to "レビューする", new_place_review_path(@place) %>
+    <div class= "detail-review-btn">
+      <%= link_to "レビューする", new_place_review_path(@place), class: "btn btn-outline-primary" %>
+    </div>
   </div>
-  <div class= "review-main">
+  <%# 投稿内容 %>
     <% @reviews.each do |review| %>
-      <div class= "upper-reviews">
-        <div class= "upper-left">
-          <div class= "download-speed">
-            <span class= "line-speed-title">DOWNLOAD</span>
-            <span ><%= review.download %></span>
-            <span class= "speed">Mgps</span>
+    <div class= "detail-review-main">
+      <div class= "detail-upper-reviews">
+        <div class= "detail-upper-left">
+          <div class= "detail-download-speed">
+            <p class= "detail-speed-title">DOWNLOAD SPEED</p>
+            <p class="detail-review-speed"><%= review.download %><span class= "detail-speed-mbps">&nbsp;Mgps</span></p>
           </div>
-          <div class= "upload-speed">
-            <span class= "line-speed-title">UPLOAD</span>
-            <span ><%= review.upload %></span>
-            <span class= "speed">Mgps</span>
+          <div class= "detail-upload-speed">
+            <p class= "detail-speed-title">UPLOAD SPEED</p>
+            <p class="detail-review-speed"><%= review.upload %><span class= "detail-speed-mbps">&nbsp;Mgps</span></p>
           </div>
         </div>
         <% if review.image.attached? %>
-          <div class= "upper-right">
-            <%= image_tag review.image.variant(resize: '200x200') %>
+          <div class= "detail-upper-right">
+            <div class="detail-review-image">
+            <%= image_tag review.image, class: "reviews-image" %>
+            </div>
           </div>
         <% end %>
       </div>
-      <div class= "bottom-reviews">
-        <div class= "bottom-left">
-          <%= review.comment %>
+      <div class= "detail-bottom-reviews">
+        <div class= "detail-bottom-left">
+          <span>コメント：</span><%= review.comment %>
         </div>
-        <div class= "bottom-center">
-          <div class= "review-edit">
-            <%= link_to "編集", edit_place_review_path(@place.id, review.id) %>
+        <% if user_signed_in? && current_user.id == review.user.id %>
+        <div class= "detail-bottom-center">
+          <div class= "detail-review-custom-btn">
+            <%= link_to "編集", edit_place_review_path(@place.id, review.id), class:'btn btn-outline-info' %>
           </div>
-          <div class= "review-delete">
-            <%= link_to "削除", place_review_path(@place.id, review.id), method: :delete, data: { confirm: "削除しますか"} %>
+          <div class= "detail-review-custom-btn">
+            <%= link_to "削除", place_review_path(@place.id, review.id), method: :delete, data: { confirm: "削除しますか"},class:'btn btn-outline-info ' %>
           </div>
         </div>
-        <div class= "bottom-right">
-          <p class= "user-name">
-            <%= review.user.name %>
+        <% end %>
+        <div class= "detail-bottom-right">
+          <p class= "detail-user-name">
+            <%= review.user.name %><span>&nbsp;さん</span>
           </p>
-          <p class= "user-created-date" >
-            投稿日時
-            <span><%= review.updated_at %></span>
+          <p class= "detail-user-created-date" >
+            <span>投稿日時 :</span>
+            <%= l review.updated_at %>
           </p>
         </div>
       </div>
+    </div>
     <% end %>
-  </div>
+    <%= paginate @reviews %>
 </div>
