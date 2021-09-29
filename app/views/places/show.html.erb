@@ -6,8 +6,8 @@
       <%= @place.place_name %>
     </p>
     <div class= "detail-area">
-      <span>  エリア:</span>
-      <%= link_to "#{@place.area.name}", "#", class: "detail-area-name" %>
+      エリア:
+      <span><%= link_to @place.area.name,{:controller=>"places", :action=>"search", :q => {:area_id_eq => "#{@place.area_id}"}}, class:"detail-area-name" %><span>
     </div>
   </div>
 

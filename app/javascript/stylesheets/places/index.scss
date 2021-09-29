@@ -248,9 +248,10 @@
   color: black;
   font-family: serif;
   border-bottom: 1px solid black;
+
 }
 
-.place-name:hover {
+.place-name:hover, .place-area-name:hover {
   text-decoration: none;
   color: gray;
 }
@@ -264,6 +265,11 @@
   border-radius: 80px;
   font-family: serif;
   width: 91.5%;
+  color: black;
+}
+
+.place-area-name {
+  color: black;
 }
 
 //// 会場フッター
@@ -349,6 +355,7 @@
 .info-item {
   border-radius: 5px;
   box-sizing: border-box;
+  padding-top:2% ;
   border: 1px solid rgb(211, 211, 211);
   height: 75%;
   width: 25%;
@@ -363,7 +370,8 @@
   text-align: center;
   color: #007bff;
   letter-spacing: 0.1em;
-  font-size: 1vw;
+  font-size: 0.8vw;
+  overflow-wrap: break-word;
 }
 
 .info-text {

@@ -1,0 +1,78 @@
+// マイページのCSS
+.halls-title>span {
+  font-size: 1.1vw;
+  letter-spacing: normal;
+}
+
+
+.user-place-header-right {
+  width: 50%;
+}
+
+
+.user-place-name-area {
+  height: 23%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5%;
+}
+
+.user-place-name {
+  font-size: 1.5vw;
+  color: black;
+  font-family: serif;
+  border-bottom: 1px solid black;
+
+}
+
+.user-place-name:hover, .user-place-area-name:hover {
+  text-decoration: none;
+  color: gray;
+}
+
+.user-place-info {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  font-size: 1.1vw;
+  font-family: serif;
+  width: 91.5%;
+  color: black;
+  padding-left: 5%;
+}
+
+.user-place-area {
+  margin-right: 20%;
+}
+
+.user-place-area-name {
+  color: black;
+}
+
+.user-reviews-info {
+  height: 65%;
+  width: 100%;;
+  box-sizing: border-box;
+  padding: 2%;
+}
+
+.user-comment {
+  width: 90%;
+  height: 85%;
+  border: 1px solid rgb(187, 187, 187);
+  box-sizing: border-box;
+  padding: 1% 3%;
+  overflow-wrap: break-word;
+  overflow: scroll;
+  font-size: 17px;
+  border-radius: 3px;
+}
+
+.user-created-date {
+  height: 10%;
+  display: flex;
+  margin-bottom: 0.5%;
+  font-size: 0.9vw;
+  font-family: serif;
+}
