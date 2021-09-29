@@ -1,3 +1,8 @@
+<% if @results.any? %>
 <% @results.each do |result|%>
-<%= result.place_name%>
+
+<%= result.area.name %>
+<% end %>
+<% else %>
+<p><%= @searched_area.name %>&nbsp;の投稿はありません</p>
 <% end %>
