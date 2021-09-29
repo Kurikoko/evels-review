@@ -31,4 +31,20 @@
   margin: 30px 0 20px 0 ;
 }
 
+// 
+.search-body {
+  height: 90vh;
+  position: relative;
+  width: 100%;
+}
+
+.non-place-content {
+  font-size: 25px;
+  position: absolute;
+  border: 1px solid #cfcfcf;
+  color: #949393;
+  top: 45%;
+  box-sizing: border-box;
+  padding: 15px;
+}
 

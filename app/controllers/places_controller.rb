@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   
   before_action :set_params, only: [:show]
   before_action :set_q, only: [:search]
-  
+
   def index
     @places = Place.all.order(created_at: :DESC).page(params[:page]).per(3)
   end
@@ -31,7 +31,7 @@ class PlacesController < ApplicationController
   end
 
   def search
-    @results = @q.result
+    @results = @q.result.order(created_at: :DESC).page(params[:page]).per(3)
     @searched_area = Area.find_by(id: "#{@q.area_id_eq}")
   end
 
