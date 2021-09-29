@@ -2,7 +2,7 @@
 <div class="main">
   <div class="title-contents">
     <div class="main-title">
-      <h4 class="display-4 main-explan">オンラインイベントで失敗しないために</h4>
+      <h4 class=" main-explain">オンラインイベントで失敗しないために</h4>
     </div>
     <div class="sub-contents">
       <p class="sub-tilte">オンラインイベントを成功させるには・・・</p>
@@ -13,43 +13,44 @@
   <div class="middle-wrapper bg-light">
     <div class="middle-contents">
       <div class="middle-wrapper-title">
-        <p><span class="logo-style">Evels</span>でわかること</p>
+        <p><span class="logo-style">Evels Tokyo</span>でわかること</p>
       </div>
       <div class="middle-items">
         <div class="middle-item">
-          <p class="middle-item-title">実測値がわかる！</p>
+          <p class="middle-item-title">実測値</p>
           <div class="icon"><i class="fas fa-tachometer-alt"></i></div>
-          <p class="middle-item-text">過去の利用者投稿により理論値でなく実際の速度がわかる！</p>
+          <p class="middle-item-text">他の利用者投稿により理論値でなく実際の速度を参考に</p>
 
         </div>
         <div class="middle-item">
-          <p class="middle-item-title">レビューを投稿しよう！</p>
+          <p class="middle-item-title">レビュー</p>
           <div class="icon"><i class="far fa-comments"></i></div>
 
-          <p class="middle-item-text">過去の速度を参照できるので再利用時の参考に！</p>
+          <p class="middle-item-text">過去の速度を参照できるので再利用時の記録として</p>
 
         </div>
       </div>
     </div>
   </div>
   <div class="area-container">
-    <div class="areas">
+    <div class="area-title-container">
+     <p class="text-primary areas-title">AREAS</p>
+    </div>
+    <div class="areas ">
       <%= render "shared/area_search" %>
-
     </div>
   </div>
   <div class="place-contents bg-light">
-    <p class="text-primary"> HALLS </p>
-
-
-
+    <div class="area-title-container">
+      <p class="text-primary halls-title"> HALLS </p>
+    </div>
     <ul class="place-lists">
       <% @places.each do |place|%>
         <li class="place-list">
           <div class="place-header">
             <div class="place-header-left">
               <%= link_to place_path(place.id) do %>
-                <%= image_tag place.image.variant(resize: '500x280', border: '2'), class: "place-img" %>
+                <%= image_tag place.image, class: "place-img" %>
               <% end %>
             </div>
             <div class="place-header-right">
@@ -64,7 +65,7 @@
               <div class= "place-info">
                 <p class="place-area">
                   エリア：
-                  <span><%= place.area.name %><span>
+                  <span><%= link_to place.area.name,{:controller=>"places", :action=>"search", :q => {:area_id_eq => "#{place.area_id}"}}%><span>
                 </p>
                 <p class="wifi">
                   Free Wifi :
@@ -97,7 +98,7 @@
               <% else %>
                 <div class="none-review-container">
                   <p class="none-review">レビューが投稿されていません</p>
-                    <%= link_to "詳細ページからレビュー",place_path(place.id), class:"btn btn-outline-secondary"%>
+                    <%= link_to "詳細ページからレビュー",place_path(place.id), class:"btn btn-outline-secondary send-show"%>
                 </div>
               <% end %>
             </div>
