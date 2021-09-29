@@ -1,0 +1,101 @@
+<%= render "shared/header" %>
+
+<div class="search-body bg-light">
+  <div class="place-contents ">
+    <div class="area-title-container">
+      <p class="text-primary halls-title"> <%= current_user.name %><span>さんのレビュー</span></p>
+    </div>
+    <ul class="place-lists">
+      <% if @user_reviews.any? %>
+      <% @user_reviews.each do |review|%>
+        <li class="place-list">
+          <div class="place-header">
+            <div class="place-header-left">
+              <%= link_to place_path(review.place.id) do %>
+                <%= image_tag review.image, class: "place-img" %>
+              <% end %>
+            </div>
+
+            <div class="user-place-header-right">
+                <p class="user-place-name-area">
+                  <span>
+                    <%= link_to place_path(review.place.id), class:"user-place-name" do %>
+                      <%= review.place.place_name %>
+                    <% end %>
+                  </span>
+              </p>
+              <div class= "user-place-info">
+                <p class="user-place-area">
+                  エリア：
+                  <span><%= link_to review.place.area.name,{:controller=>"places", :action=>"search", :q => {:area_id_eq => "#{review.place.area_id}"}}, class:"user-place-area-name" %><span>
+                </p>
+                <p class="wifi">
+                  Free Wifi :
+                  <span><%= review.place.wifi.name %></span>
+                </p>
+              </div>
+              <div class="user-reviews-info">
+                <p class= "user-created-date" >
+                    <span>投稿日時 : &nbsp;</span>
+                    <%= l review.updated_at %>
+                </p>
+                <div class= "user-comment">
+                  <span>コメント：</span><%= review.comment %>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <div class="place-bottoms">
+            <div class="place-bottom-left">
+              <div class="line-speed">
+                <div class="speed-container ">
+                  <p class= "speed-title">
+                    Download Speed
+                  </p>
+                  <div class="average" >
+                    <%= review.download %><span class="speed-mbps"> Mbps</span>
+                  </div>
+                </div>
+                <div class="speed-container">
+                    <p class= "speed-title">
+                      Upload Speed
+                    </p>
+                    <div class="average" >
+                      <%= review.upload %><span class="speed-mbps"> Mbps</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="place-bottom-right">
+              <div class="info-items">
+                <div class="info-item">
+                    <p class="info-text">回線</p>
+                    <%= review.place.carrier%>
+                </div>
+                <div class="info-item">
+                    <p class="info-text">種別</p>
+                    <p class="<%=line_kinds_bad(review.place)%>">
+                    <%= review.place.line_kinds.name %>
+                    </p>
+                </div>
+                <div class="info-item">
+                    <p class="info-text">料金</p>
+                  <%= review.place.fee.name %>
+                </div>
+                <div class="info-item <%= backup_line_bad(review.place) %>">
+                  <span> 予備回線</span>
+                  <%= review.place.backup_line.name %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    <% else %>
+      <p class="non-place-content"><%= current_user.name %>&nbsp;さんのレビューがありません</p>
+    <% end %>
+      <%= paginate @user_reviews %>
+    </ul>
+  </div> 
+</div>

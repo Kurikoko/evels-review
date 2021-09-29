@@ -3,6 +3,7 @@
 @import 'layouts/header';
 @import 'places/index';
 @import 'places/show';
+@import 'users/show';
 
 // ページネーション自体のデザイン
 .pagination>li>a {          
@@ -31,20 +32,23 @@
   margin: 30px 0 20px 0 ;
 }
 
-// 
-.search-body {
-  height: 90vh;
-  position: relative;
-  width: 100%;
+// エリア検索のCSS
+
+.non-place-content{
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
 
-.non-place-content {
+.non-place-content>p {
   font-size: 25px;
-  position: absolute;
   border: 1px solid #cfcfcf;
   color: #949393;
-  top: 45%;
   box-sizing: border-box;
   padding: 15px;
+  position: absolute;
+  top:45%;
 }
+
 

@@ -1,98 +1,97 @@
 <%= render "shared/header" %>
 
-<div class="search-body bg-light">
-  <div class="place-contents ">
-    <div class="area-title-container">
-      <p class="text-primary halls-title"> <%= @searched_area.name %> </p>
-    </div>
-    <ul class="place-lists">
-      <% if @results.any? %>
-      <% @results.each do |place|%>
-        <li class="place-list">
-          <div class="place-header">
-            <div class="place-header-left">
-              <%= link_to place_path(place.id) do %>
-                <%= image_tag place.image, class: "place-img" %>
+<div class="place-contents  bg-light">
+  <div class="area-title-container">
+    <p class="text-primary halls-title"> <%= @searched_area.name %> </p>
+  </div>
+  <ul class="place-lists">
+    <% if @results.any? %>
+    <% @results.each do |place|%>
+      <li class="place-list">
+        <div class="place-header">
+          <div class="place-header-left">
+            <%= link_to place_path(place.id) do %>
+              <%= image_tag place.image, class: "place-img" %>
+            <% end %>
+          </div>
+          <div class="place-header-right">
+              <p class="place-name-area">
+              <span>
+              <%= link_to place_path(place.id), class:"place-name" do %>
+                <%= place.place_name %>
               <% end %>
-            </div>
-            <div class="place-header-right">
-                <p class="place-name-area">
-                <span>
-                <%= link_to place_path(place.id), class:"place-name" do %>
-                  <%= place.place_name %>
-                <% end %>
-                </span>
+              </span>
+            </p>
+            <div class= "place-info">
+              <p class="place-area">
+                エリア：
+                <span><%= place.area.name %><span>
               </p>
-              <%# エリア検索に伴ったリンクを貼る %>
-              <div class= "place-info">
-                <p class="place-area">
-                  エリア：
-                  <span><%= place.area.name %><span>
-                </p>
-                <p class="wifi">
-                  Free Wifi :
-                  <span><%= place.wifi.name %></span>
-                </p>
-              </div>
+              <p class="wifi">
+                Free Wifi :
+                <span><%= place.wifi.name %></span>
+              </p>
             </div>
           </div>
-          <div class="place-bottoms">
-            <div class="place-bottom-left">
-              <% if place.reviews.exists?(place_id: "#{place.id}")%>
-              <div class="line-speed">
-                <div class="speed-container ">
+        </div>
+        <div class="place-bottoms">
+          <div class="place-bottom-left">
+            <% if place.reviews.exists?(place_id: "#{place.id}")%>
+            <div class="line-speed">
+              <div class="speed-container ">
+                <p class= "speed-title">
+                  Download Average Speed
+                </p>
+                <div class="average" >
+                  <%= place.reviews.average(:download).round(2) %><span class="speed-mbps"> Mbps</span>
+                </div>
+              </div>
+              <div class="speed-container">
                   <p class= "speed-title">
-                    Download Average Speed
+                    Upload Average Speed
                   </p>
                   <div class="average" >
-                    <%= place.reviews.average(:download).round(2) %><span class="speed-mbps"> Mbps</span>
+                    <%= place.reviews.average(:upload).round(2) %><span class="speed-mbps"> Mbps</span>
                   </div>
-                </div>
-                <div class="speed-container">
-                    <p class= "speed-title">
-                      Upload Average Speed
-                    </p>
-                    <div class="average" >
-                      <%= place.reviews.average(:upload).round(2) %><span class="speed-mbps"> Mbps</span>
-                    </div>
-                </div>
               </div>
-              <% else %>
-                <div class="none-review-container">
-                  <p class="none-review">レビューが投稿されていません</p>
-                    <%= link_to "詳細ページからレビュー",place_path(place.id), class:"btn btn-outline-secondary send-show"%>
-                </div>
-              <% end %>
             </div>
-            <div class="place-bottom-right">
-              <div class="info-items">
-                <div class="info-item">
-                    <p class="info-text">回線</p>
-                    <%= place.carrier%>
-                </div>
-                <div class="info-item">
-                    <p class="info-text">種別</p>
-                    <p class="<%=line_kinds_bad(place)%>">
-                    <%= place.line_kinds.name %>
-                    </p>
-                </div>
-                <div class="info-item">
-                    <p class="info-text">料金</p>
-                  <%= place.fee.name %>
-                </div>
-                <div class="info-item <%= backup_line_bad(place) %>">
-                  <span> 予備回線</span>
-                  <%= place.backup_line.name %>
-                </div>
+            <% else %>
+              <div class="none-review-container">
+                <p class="none-review">レビューが投稿されていません</p>
+                  <%= link_to "詳細ページからレビュー",place_path(place.id), class:"btn btn-outline-secondary send-show"%>
+              </div>
+            <% end %>
+          </div>
+          <div class="place-bottom-right">
+            <div class="info-items">
+              <div class="info-item">
+                  <p class="info-text">回線</p>
+                  <%= place.carrier%>
+              </div>
+              <div class="info-item">
+                  <p class="info-text">種別</p>
+                  <p class="<%=line_kinds_bad(place)%>">
+                  <%= place.line_kinds.name %>
+                  </p>
+              </div>
+              <div class="info-item">
+                  <p class="info-text">料金</p>
+                <%= place.fee.name %>
+              </div>
+              <div class="info-item <%= backup_line_bad(place) %>">
+                <span> 予備回線</span>
+                <%= place.backup_line.name %>
               </div>
             </div>
           </div>
-        </li>
-      <% end %>
-    <% else %>
-      <p class="non-place-content"><%= @searched_area.name %>&nbsp;の会場登録がありません</p>
+        </div>
+      </li>
     <% end %>
-      <%= paginate @results %>
-    </ul>
-  </div> 
-</div>
+  <% else %>
+  <div class="non-place-content bg-light">
+    <p><%= @searched_area.name %>&nbsp;の会場登録がありません</p>
+  </div>
+  <% end %>
+    <%= paginate @results %>
+  </ul>
+</div> 

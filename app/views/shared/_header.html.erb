@@ -8,7 +8,7 @@
         <li class="btn btn-sm btn-white " style="font-size :0.8vw"><%= link_to  new_place_path, class: "nav-link text-dark" do%>
         <p>会場登録</p>
         <i class="fas fa-hotel"></i><% end %></li>
-        <li class="btn btn-sm btn-white" style="font-size :0.8vw"><%= link_to  "user/#{current_user.id}", class: "nav-link text-dark" do %>
+        <li class="btn btn-sm btn-white" style="font-size :0.8vw"><%= link_to  "/users/#{current_user.id}", class: "nav-link text-dark" do %>
         <p><%= current_user.name %></p>
         <i class="fas fa-user"></i><% end %></li>
         <li class="btn btn-sm btn-white"  style="font-size :0.8vw"><%= link_to  destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>

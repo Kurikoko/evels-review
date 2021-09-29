@@ -65,7 +65,7 @@
               <div class= "place-info">
                 <p class="place-area">
                   エリア：
-                  <span><%= link_to place.area.name,{:controller=>"places", :action=>"search", :q => {:area_id_eq => "#{place.area_id}"}}%><span>
+                  <span><%= link_to place.area.name,{:controller=>"places", :action=>"search", :q => {:area_id_eq => "#{place.area_id}"}}, class:"place-area-name" %><span>
                 </p>
                 <p class="wifi">
                   Free Wifi :
