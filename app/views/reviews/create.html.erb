@@ -1,16 +1,14 @@
 <%= render "shared/header" %>
-<div class="devise-container  bg-light"> 
-  <div class="devise-main-sign-up">
-    <div class=" devise-title d-flex align-items-center">
-      <p class="">会場レビューが完了しました</p>
-    </div>
-  </div>
-  <div class="devise-form-container d-flex align-items-center"> 
-    <div class="">
-      <%= link_to "もとのページへもどる", place_path(@place.id) %>
-    </div>
-    <div class="">
-      <%= link_to "トップページへもどる", "/" %>
+<div class="review-create-body  bg-light d-flex justify-content-center align-items-center"> 
+  <div class="review-create-container w-50 h-75 bg-white d-flex flex-column justify-content-between align-items-center">
+    <div class="review-create-title"><p>会場レビューが完了しました</p></div>
+    <div class="review-create-btns">
+      <div class="review-create-btn">
+        <%= link_to "もとのページへもどる", place_path(@place.id), class:"btn btn-outline-secondary" %>
+      </div>
+      <div class="review-create-btn">
+        <%= link_to "トップページへもどる", "/", class:"btn btn-outline-secondary" %>
+      </div>
     </div>
   </div>
 </div>
