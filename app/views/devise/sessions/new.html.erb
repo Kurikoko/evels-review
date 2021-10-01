@@ -1,31 +1,38 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<%= render "devise/shared/header" %>
+<div class="devise-container  bg-light"> 
+  <div class="devise-main">
+    <div class=" devise-title d-flex align-items-center">
+      <p class="text-primary sign-in-title">ログイン</p>
     </div>
-  <% end %>
+    <div class="devise-form-container d-flex align-items-center">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "devise-forms"}) do |f| %>
+      <p class="alert"><%= alert %></p>
+          <div class="devise-field">
+            <div class="h-50 d-flex align-items-end w-100"><%= f.label :email , class:"label text-secondary"%><br /></div>
+            <%= f.email_field :email, autocomplete: "email", class:"form-control bg-light h-50" %>
+          </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+          <div class="devise-field">
+            <div class="h-50 d-flex align-items-end w-100"><%= f.label :password, class:"label text-secondary" %><br /></div>
+            <%= f.password_field :password, autocomplete: "current-password", class:"form-control bg-light h-50" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="actions">
+              <%= f.check_box :remember_me, class:"checkbox" %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="actions ">
+            <%= f.submit "ログイン" , class:"btn btn-outline-secondary" %>
+          </div>
+
+      <% end %>
+      
+    </div>
+          <p class="non-account">アカウントをお持ちでない方は<br/>
+           <%= render "devise/shared/links" %>
+          </p>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

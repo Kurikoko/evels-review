@@ -24,7 +24,7 @@ class Area < ActiveHash::Base
     { id: 22, name: "足立区"},
     { id: 23, name: "葛飾区"},
     { id: 24, name: "江戸川区"},
-    { id: 25, name: "選択肢にない市・町・郡・離島"}
+    { id: 25, name: "その他の地域"}
   ]
   include ActiveHash::Associations
   has_many :places

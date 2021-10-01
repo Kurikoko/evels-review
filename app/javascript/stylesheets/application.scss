@@ -3,7 +3,12 @@
 @import 'layouts/header';
 @import 'places/index';
 @import 'places/show';
+@import 'places/new';
+@import 'reviews/new';
+@import 'reviews/create';
 @import 'users/show';
+@import 'devise/sign_in';
+@import 'devise/sign_up';
 
 // ページネーション自体のデザイン
 .pagination>li>a {          
@@ -52,3 +57,21 @@
 }
 
 
+// footer CSS
+.footer {
+  height: 10vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-bottom: 2%;
+}
+
+.footer-logo {
+  border-bottom: 1px solid gray;
+}
+
+.footer-logo:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}

@@ -12,12 +12,18 @@ class Place < ApplicationRecord
   belongs_to :backup_line
   belongs_to :wifi
 
-  validates :place_name,     presence: true
-  validates :area_id,        presence: true
-  validates :carrier,        presence: true
-  validates :line_kinds_id,  presence: true
-  validates :fee_id,         presence: true
-  validates :backup_line_id, presence: true
-  validates :wifi_id,        presence: true
-  validates :image,          presence: true
+  with_options presence: true do
+    validates :place_name, uniqueness: true
+    validates :image
+    validates :carrier
+  end
+
+  with_options numericality: {other_than: 1, message: "が選択されていません"} do
+    validates :area_id
+    validates :line_kinds_id
+    validates :fee_id
+    validates :backup_line_id
+    validates :wifi_id
+  end
+
 end

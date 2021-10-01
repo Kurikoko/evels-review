@@ -1,14 +1,15 @@
-<%= render "shared/second-header" %>
-<div class="">
-  <p class="">
-    会場レビューが完了しました
-  </p>
-  <ul class="">
-    <li class="">
-      <%= link_to "もとのページへもどる", place_path(@place.id) %>
-    </li>
-    <li class="">
-      <%= link_to "トップページへもどる", "/" %>
-    </li>
-  </ul>
+<%= render "shared/header" %>
+<div class="review-create-body  bg-light d-flex justify-content-center align-items-center"> 
+  <div class="review-create-container w-50 h-75 bg-white d-flex flex-column justify-content-between align-items-center">
+    <div class="review-create-title"><p>会場レビューが完了しました</p></div>
+    <div class="review-create-btns">
+      <div class="review-create-btn">
+        <%= link_to "もとのページへもどる", place_path(@place.id), class:"btn btn-outline-secondary" %>
+      </div>
+      <div class="review-create-btn">
+        <%= link_to "トップページへもどる", "/", class:"btn btn-outline-secondary" %>
+      </div>
+    </div>
+  </div>
 </div>
+<%= render "shared/footer" %>

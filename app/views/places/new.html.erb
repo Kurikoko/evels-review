@@ -1,70 +1,56 @@
 <%# 後からヘッダー消すかも %>
-<%= render "shared/second-header" %>
+<%= render "shared/header" %>
 
-<div class="place-create-contents">
-  <%# 後からロゴ入れるかも %>
-  <div class="place-create-main">
-    <p class="title">
-      会場をあたらしく登録
-    </p>
-    <%= form_with model: @place, url:places_path, local: true do |f| %>
-      <%= render "shared/error_messages", model: f.object %>
-      <div class="image-upload">  
-        <div class="contents-title">
-          会場画像
+<div class="place-create-body vw-100 bg-light d-flex  justify-content-center ">
+  <div class="place-create-contents bg-white">
+    <div class="place-create-main">
+      <p class="place-create-title">
+        会場新規登録
+      </p>
+      <%= form_with model: @place, url:places_path, local: true, html: {class: "create-forms"} do |f| %>
+        <%= render "shared/error_messages2", model: f.object %>
+        <div class="create-content create-place-name">
+          <p class="create-title">会場の名前 </p>
+            <%= f.text_area :place_name, id: "place-name-input", class: "form-control", placeholder: "会場名", maxlength: "30" %>
         </div>
-        <div class="click-upload">
-          <p> クリックしてアップロード</p>
-          <%= f.file_field :image, id: "place-image" %>
+        <div class="create-content create-image">  
+          <p class="create-title">会場画像</p>
+          <div class="click-upload input-group">
+            <label class="input-group-btn"><span class="btn btn-outline-secondary">
+            Choose File
+            <%= f.file_field :image, id: "image-input", style: "display: none" %></span>
+            </label>
+            <input type="text" class="form-control bg-white" readonly="">
+          </div>
         </div>
-      </div>
-      <div class="place-name">  
-        <div class="contents-title">
-          会場の名前
-          <span class="must">必須</span>
-          <%= f.text_area :place_name, id: "place-name", class: "place-text-input", placeholder: "会場名", maxlength: "30" %>
+        <div class="create-content create-area">  
+          <p class="create-title">会場の場所（都内）</p>
+            <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class: "form-control w-25", id: "area-category" }) %>
         </div>
-      </div>
-      <div class="place-area">  
-        <div class="contents-title">
-          会場の場所（都内）
-          <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class: "select-box", id: "area-category" }) %>
+        <div class="create-content create-carrier">  
+          <p class="create-title">回線サービス</p>
+            <%= f.text_area :carrier, id: "place-text-input",class:"form-control w-25", placeholder: "例: Nuro光", maxlength: "16" %>
         </div>
-      </div>
-      <div class="place-carrier">  
-        <div class="contents-title">
-          回線サービス
-          <%= f.text_area :carrier, id: "carrier", class: "place-text-input", placeholder: "(例)アルテリア光", maxlength: "30" %>
+        <div class="create-content place-line-kinds">  
+          <p class="create-title"> 回線種別 </p>
+            <%= f.collection_select(:line_kinds_id, LineKinds.all, :id, :name, {}, {class: "form-control w-25", id: "line-kinds-category" }) %>
         </div>
-      </div>
-      <div class="place-line-kinds">  
-        <div class="contents-title">
-          回線種別
-          <%= f.collection_select(:line_kinds_id, LineKinds.all, :id, :name, {}, {class: "select-box", id: "line-kinds-category" }) %>
+        <div class="create-content place-backup-line">  
+          <p class="create-title"> 予備回線の有無 </p>
+            <%= f.collection_select(:backup_line_id, BackupLine.all, :id, :name, {}, {class: "form-control w-25", id: "backup-line-category" }) %>
         </div>
-      </div>
-      <div class="place-backup-line">  
-        <div class="contents-title">
-          予備回線
-          <%= f.collection_select(:backup_line_id, BackupLine.all, :id, :name, {}, {class: "select-box", id: "backup-line-category" }) %>
+        <div class="create-content place-fee">  
+          <p class="create-title">費用形態</p>
+            <%= f.collection_select(:fee_id, Fee.all, :id, :name, {}, {class: "form-control w-25", id: "fee-category" }) %>
         </div>
-      </div>
-      <div class="place-fee">  
-        <div class="contents-title">
-          費用
-          <%= f.collection_select(:fee_id, Fee.all, :id, :name, {}, {class: "select-box", id: "fee-category" }) %>
+        <div class="create-content place-wifi">  
+          <p class="create-title">Free Wifiの有無</p>
+            <%= f.collection_select(:wifi_id, Wifi.all, :id, :name, {}, {class: "form-control w-25", id: "wifi-category" }) %>
         </div>
-      </div>
-      <div class="place-wifi">  
-        <div class="contents-title">
-          Wifi
-          <%= f.collection_select(:wifi_id, Wifi.all, :id, :name, {}, {class: "select-box", id: "wifi-category" }) %>
-        </div>
-      </div>
-      <div class="create-btn">
-        <%= f.submit "登録する", class: "submit" %>
-        <%= link_to "もどる", root_path, class: "back-btn" %>
-      </div>
-    <% end %>
+          <%= f.submit "登録する", class: "create-btn btn btn-outline-info" %>
+          <%= link_to "もどる", root_path, class: "create-btn btn btn-outline-secondary" %>
+      <% end %>
+    </div>
   </div>
 </div>
+<%= render "shared/footer" %>
