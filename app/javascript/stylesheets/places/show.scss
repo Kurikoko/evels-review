@@ -59,18 +59,22 @@
   justify-content: space-around;
   align-items: flex-end;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 10px;
   margin: auto;
   font-family: serif;
   border-bottom: 1px solid grey;
+
 }
 
 .detail-area {
   margin-left: auto;
+
+  width: 10%;
 }
 .detail-area-name {
   color: black;
-  font-size: 1.3vw;
+  font-size: 0.9vw;
+
 }
 
 .detail-area-name:hover {
@@ -79,7 +83,9 @@
 }
 
 .detail-place-title {
-  font-size: 2.6vw;
+  font-size: 2.1vw;
+  height: 50%;
+  width: 90%;
 }
 
 // 詳細イメージ

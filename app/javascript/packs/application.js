@@ -9,6 +9,7 @@ require("channels")
 require('jquery')
 require('image-change.js')
 require('slick.js')
+require('preview-text.js');
 
 import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all';

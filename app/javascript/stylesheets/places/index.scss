@@ -233,6 +233,7 @@
 
 .place-header-right {
   width: 50%;
+
 }
 
 .place-name-area {
@@ -240,7 +241,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 5%;
+  padding: 0 3.5%;
+  overflow-wrap:break-word;
 }
 
 .place-name {
