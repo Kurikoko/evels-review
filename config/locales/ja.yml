@@ -12,23 +12,35 @@ ja:
   activerecord:
     attributes:
       place:
-            place_name: 会場名
-            carrier: 回線サービス
-            image: 会場画像
-            area_id: 会場の場所
-            line_kinds_id: 回線の種別
-            fee_id: 費用形態
-            backup_line_id: 予備回線の有無
-            wifi_id: Wifiの有無
+        place_name: 会場名
+        carrier: 回線サービス
+        image: 会場画像
+        area_id: 会場の場所
+        line_kinds_id: 回線の種別
+        fee_id: 費用形態
+        backup_line_id: 予備回線の有無
+        wifi_id: Wifiの有無
+      review:
+        upload: UPLOAD SPEED
+        download: DOWNLOAD SPEED
+        comment: コメント
 
     errors:
       models:
         place:
           attributes:
             place_name:
-              blank: "が入力されてません"
+              blank: "が入力されていません"
               taken: "は既に登録されています"
             carrier:
               blank: "が入力されていません"
             image:
               blank: "を選択してください"
+        review:
+          attributes:
+            upload: 
+              blank: "が入力されていません"
+            download:
+              blank: "が入力されていません"
+            comment:
+              blank: "が入力されていません"

@@ -21,9 +21,11 @@
     <div class= "detail-sub-image-container">
       <ul class= "review-images">
       <% @reviews_all.each do |review_image|%>
-        <li class= "detail-review-image">
-        <%= image_tag review_image.image, class: 'detail-place-review-image' %>
-        </li>
+        <% if review_image.image.present? %>
+         <li class= "detail-review-image">
+          <%= image_tag review_image.image, class: 'detail-place-review-image' %>
+          </li>
+        <% end %>
       <% end %>
       </ul>
     </div>
@@ -124,6 +126,8 @@
             <%= image_tag review.image, class: "reviews-image" %>
             </div>
           </div>
+          <% else %>
+            <%= image_tag "noimage", class: "reviews-image", style:"margin-right: 5%" %>
         <% end %>
       </div>
       <div class= "detail-bottom-reviews">

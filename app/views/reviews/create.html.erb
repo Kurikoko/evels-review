@@ -1,14 +1,17 @@
-<%= render "shared/second-header" %>
-<div class="">
-  <p class="">
-    会場レビューが完了しました
-  </p>
-  <ul class="">
-    <li class="">
+<%= render "shared/header" %>
+<div class="devise-container  bg-light"> 
+  <div class="devise-main-sign-up">
+    <div class=" devise-title d-flex align-items-center">
+      <p class="">会場レビューが完了しました</p>
+    </div>
+  </div>
+  <div class="devise-form-container d-flex align-items-center"> 
+    <div class="">
       <%= link_to "もとのページへもどる", place_path(@place.id) %>
-    </li>
-    <li class="">
+    </div>
+    <div class="">
       <%= link_to "トップページへもどる", "/" %>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
+<%= render "shared/footer" %>

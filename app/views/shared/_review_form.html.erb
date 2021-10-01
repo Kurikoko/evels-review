@@ -1,0 +1,37 @@
+<%= form_with(model: [@place, @review], local: true, html: {class: "create-forms"}) do |f| %>
+  <%= render "shared/error_messages2", model: f.object %>
+  <div class="create-content">  
+    <p class="create-title">
+      <span class="wired">有線接続</span>
+      &nbsp;DOWNLOAD SPEED
+    </p>
+      <%= f.number_field :download, id: "download-speed", class: "form-control", in: 0.01..3000.00, step: 0.01 %>
+      <span class="mbps ">Mbps</span>
+  </div>
+  <div class="create-content">  
+    <p class="create-title">
+      <span class="wired"> 有線接続</span>
+      &nbsp;UPLOAD SPEED
+    </p>
+      <%= f.number_field :upload, id: "upload-speed", class: "form-control", in: 0.01..3000.00, step: 0.01 %>
+      <span class="mbps">Mbps</span>
+  </div>
+  <div class="create-content create-image">  
+    <p class="create-title">
+      <span class="any">&lt;任意&gt;</span>
+      &nbsp;レビュー画像</p>
+    <div class="click-upload input-group">
+      <label class="input-group-btn"><span class="btn btn-outline-secondary">
+      Choose File
+        <%= f.file_field :image, id: "image-input", style: "display: none" %></span>
+      </label>
+      <input type="text" class="form-control bg-white" readonly="">
+    </div>
+  </div>
+  <div class="create-comment-content">  
+    <p class="create-title">コメント</p>
+      <%= f.text_area :comment, id: "comment", class: "form-control w-50 h-75", placeholder: "1000文字まで", rows: "7", maxlength: "1000" %>
+  </div>
+  <%= f.submit "レビュー", class: "create-btn btn btn-outline-info" %>
+  <%= link_to "もどる", place_path(@place), class: "create-btn btn btn-outline-secondary" %>
+<% end %>
