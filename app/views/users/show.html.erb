@@ -12,7 +12,11 @@
           <div class="place-header">
             <div class="place-header-left">
               <%= link_to place_path(review.place.id) do %>
-                <%= image_tag review.image, class: "place-img" %>
+                <% if review.image.attached? %>
+                  <%= image_tag review.image, class: "place-img" %>
+                <% else %>
+                  <%= image_pack_tag 'media/images/noimage.png', class: "place-img", style:"margin-right: 5%" %>
+               <% end %>
               <% end %>
             </div>
 
