@@ -50,7 +50,7 @@
           <div class="place-header">
             <div class="place-header-left">
               <%= link_to place_path(place.id) do %>
-                <%= image_tag place.image, class: "place-img" %>
+                <%= image_tag place.image.variant(resize: '500x500'), class: "place-img" %>
               <% end %>
             </div>
             <div class="place-header-right">
