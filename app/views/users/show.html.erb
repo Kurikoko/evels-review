@@ -11,7 +11,7 @@
         <li class="place-list">
           <div class="place-header">
             <div class="place-header-left">
-              <%= link_to place_path(review.place.id) do %>
+              <%= link_to place_path(review.place.id),class:"place-img-container" do %>
                 <% if review.image.attached? %>
                   <%= image_tag review.image, class: "place-img" %>
                 <% else %>
