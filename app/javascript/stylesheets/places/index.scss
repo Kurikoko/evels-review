@@ -88,8 +88,9 @@
 .middle-item-title, .middle-item-text {
   height: 20%;
   box-sizing: border-box;
-  padding-top: 30px;
+  padding: 40px 0;
   font-size: 1.1vw;
+
 }
 
 .middle-item-title {
@@ -98,17 +99,18 @@
 
 .icon {
   height: 60%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .fa-tachometer-alt {
-  font-size: 12vw;
   color: #007bff;
+  font-size: 150px;
 }
 .fa-comments {
-  font-size: 12vw;
+  font-size: 150px;
   color: #007bff;
 }
 
