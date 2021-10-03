@@ -20,8 +20,9 @@
 
 .bigimg {
   position: absolute;
-  width: 100%;
+  width: auto;
   max-width: 1000px;
+  height: auto;
   top: 100px;
   left: 0;
   right: 0;
@@ -143,13 +144,26 @@
 }
 
 .detail-place-review-image {
-  height: auto;
-  width: 43%;
+  width: 100%;
+  height: 100%;
   margin: auto;
   box-sizing: border-box;
   border-radius: 10px;
   border: 1px solid rgb(220, 220, 220);
+  object-fit: contain;
 }
+
+// slickサイズ
+.slick-list, .slick-track {
+  width: 100%;
+  height: 100%;
+}
+
+.slick-slide img {
+  width: 100%;
+  height: 100%; //ポイント1
+}
+ 
 
 // 詳細情報
 .detail-info-contents {
