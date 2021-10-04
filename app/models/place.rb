@@ -13,7 +13,7 @@ class Place < ApplicationRecord
   belongs_to :wifi
 
   with_options presence: true do
-    validates :place_name, uniqueness: true
+    validates :place_name, uniqueness: { case_sensitive: true }
     validates :image
     validates :carrier
   end

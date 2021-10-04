@@ -79,8 +79,8 @@
             <%= @place.line_kinds.name %>
             </p>
         </div>
-        <div class="detail-info-item">
-            <p class="detail-info-text">料金</p>
+        <div class="detail-info-item <%= fee_bad(@place) %> ">
+            <p class="detail-info-text ">料金</p>
           <%= @place.fee.name %>
         </div>
         <div class="detail-info-item <%= backup_line_bad(@place) %>">
