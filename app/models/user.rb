@@ -5,8 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :reviews
-  has_many :places
-  has_many :users, through: :place_users
 
   validates :name, presence: true
   validates :password,

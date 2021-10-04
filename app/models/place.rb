@@ -1,8 +1,6 @@
 class Place < ApplicationRecord
   
   has_many :reviews
-  has_many :place_users
-  has_many :users, through: :place_users
   has_one_attached :image
   
   extend ActiveHash::Associations::ActiveRecordExtensions

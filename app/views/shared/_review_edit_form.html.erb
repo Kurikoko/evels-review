@@ -1,4 +1,4 @@
-<%= form_with(model: [@place,@review], local: true, html: {class: "create-forms"}) do |f| %>
+<%= form_with(model: [@place,@review],url: place_review_path, local: true, html: {class: "create-forms"}) do |f| %>
   <%= render "shared/error_messages2", model: f.object %>
   <div class="create-content">  
     <p class="create-title">
@@ -33,5 +33,5 @@
       <%= f.text_area :comment, id: "comment", class: "form-control w-50 h-75", placeholder: "1000文字まで", rows: "7", maxlength: "1000" %>
   </div>
   <%= f.submit "レビュー", class: "create-btn btn btn-outline-info" %>
-  <%= link_to "もどる", place_path(@place), class: "create-btn btn btn-outline-secondary" %>
+  <%= link_to "もどる", place_path(@review.place_id), class: "create-btn btn btn-outline-secondary" %>
 <% end %>

@@ -10,9 +10,11 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    unless @review.save
+    if @review.save
+      redirect_to place_reviews(@review.place_id)
+    else
       render :new
-    end  
+    end    
   end
 
   def destroy

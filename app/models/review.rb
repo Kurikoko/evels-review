@@ -4,7 +4,14 @@ class Review < ApplicationRecord
 
   has_one_attached :image
 
-  validates :download, presence: true
-  validates :upload,   presence: true
-  validates :comment,  presence: true
+
+  with_options presence: true do
+    validates :comment
+    with_options numericality: true, inclusion: { in: 0.01..3_000 } do
+      validates :download
+      validates :upload
+    end
+  end
+
+  validates :place_id, uniqueness: {scope: :user_id}
 end
