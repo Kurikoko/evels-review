@@ -22,6 +22,8 @@ ja:
         wifi_id: Wifiの有無
       review:
         place_id: 会場
+        place: 会場
+        user: ユーザー
         upload: UPLOAD SPEED
         download: DOWNLOAD SPEED
         comment: コメント
@@ -39,15 +41,19 @@ ja:
               blank: "を選択してください"
         review:
           attributes:
+            place:
+              required: "が紐付いていません"
             place_id:
               taken: "のレビューが既に登録されています"
+            user:
+              required: "が紐付いていません"
             upload: 
               blank: "が入力されていません"
-              not_a_number: "半角数値で入力ください"
-              inclusion: "0.01から3000の範囲で入力ください"
+              not_a_number: "は半角数値で入力ください"
+              inclusion: "は0.01から3000の範囲で入力ください"
             download:
               blank: "が入力されていません"
-              not_a_number: "半角数値で入力ください"
-              inclusion: "0.01から3000の範囲で入力ください"
+              not_a_number: "は半角数値で入力ください"
+              inclusion: "は0.01から3000の範囲で入力ください"
             comment:
               blank: "が入力されていません"

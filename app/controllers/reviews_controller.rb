@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
-      redirect_to place_reviews(@review.place_id)
+      redirect_to place_path(@review.place_id)
     else
       render :new
     end    
