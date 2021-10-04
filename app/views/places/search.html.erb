@@ -68,13 +68,12 @@
                   <p class="info-text">回線</p>
                   <%= place.carrier%>
               </div>
-              <div class="info-item">
+              <div class="info-item <%=line_kinds_bad(place)%> ">
                   <p class="info-text">種別</p>
-                  <p class="<%=line_kinds_bad(place)%>">
                   <%= place.line_kinds.name %>
                   </p>
               </div>
-              <div class="info-item">
+              <div class="info-item <%=fee_bad(place)%> ">
                   <p class="info-text">料金</p>
                 <%= place.fee.name %>
               </div>

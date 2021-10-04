@@ -9,8 +9,6 @@
 | encrypted_password | string | null: false               |
 
 ### Association
-- has_many  :place_users
-- has_many  :place, through: :place_users
 - has_many  :reviews
 
 ## placesテーブル
@@ -26,31 +24,17 @@
 | wifi_id        | integer | null: false |
 
 ### Association
-- has_many  :place_users
-- has_many  :users, through: :place_users
 - has_many  :reviews
 
-## place_users_テーブル
-
-| Column | Type       | Options                        |
-| ------ | -----------| ------------------------------ |
-| user   | references | foreign_key: true, null: false |
-| place  | references | foreign_key: true, null: false |
-
-
-### Association
-
-- belongs_to  :user
-- belongs_to  :place
 
 ## reviewsテーブル
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| user           | references | foreign_key: true, null: false |
-| place          | references | foreign_key: true, null: false |
-| download       | float      | null: false                    |
-| upload         | float      | null: false                    |
-| comment        | text       | null: false                    |
+| Column         | Type       | Options                                                        |
+| -------------- | ---------- | -------------------------------------------------------------- |
+| user           | references | foreign_key: true, null: false                                 |
+| place          | references | foreign_key: true, null: false, uniqueness: {scope :: user_id} |
+| download       | float      | null: false                                                    |
+| upload         | float      | null: false                                                    |
+| comment        | text       | null: false                                                    |
 
 ### Association
 

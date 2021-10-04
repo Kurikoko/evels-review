@@ -3,9 +3,9 @@
   <div class="place-create-contents bg-white">
     <div class="place-create-main">
         <p class="place-create-title" style="font-family: serif"> 
-            <%= @place.place_name %><br/><span>レビュー編集</span>
+            <%= @review.place.place_name %><br/><span>レビュー編集</span>
         </p>
-        <%= render "shared/review_form" %>
+        <%= render "shared/review_edit_form" %>
     </div>
   </div>
 </div>

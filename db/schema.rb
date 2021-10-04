@@ -33,15 +33,6 @@ ActiveRecord::Schema.define(version: 2021_09_20_082309) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "place_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.bigint "place_id", null: false
-    t.index ["place_id"], name: "index_place_users_on_place_id"
-    t.index ["user_id"], name: "index_place_users_on_user_id"
-  end
-
   create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -62,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_09_20_082309) do
     t.float "download", null: false
     t.float "upload", null: false
     t.text "comment", null: false
+    t.index ["place_id", "user_id"], name: "index_reviews_on_place_id_and_user_id", unique: true
     t.index ["place_id"], name: "index_reviews_on_place_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
@@ -80,8 +72,6 @@ ActiveRecord::Schema.define(version: 2021_09_20_082309) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "place_users", "places"
-  add_foreign_key "place_users", "users"
   add_foreign_key "reviews", "places"
   add_foreign_key "reviews", "users"
 end

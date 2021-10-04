@@ -9,5 +9,6 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.float      :upload,   null: false
       t.text       :comment,  null: false
     end
+    add_index :reviews, [ :place_id, :user_id],unique: true
   end
 end

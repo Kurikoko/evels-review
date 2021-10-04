@@ -1,16 +1,20 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only:[:new,:edit,:destroy]
   before_action :set_place_params, only:[:new, :create, :edit, :destroy]
   before_action :set_review_params, only: [:edit, :update, :destroy]
+  before_action :redirect_different_user, only: [:edit, :destroy]
 
   def new
     @review = Review.new
   end
 
   def create
-    @review = Review.create(review_params)
-    unless @review.save
+    @review = Review.new(review_params)
+    if @review.save
+      redirect_to place_path(@review.place_id)
+    else
       render :new
-    end  
+    end    
   end
 
   def destroy
@@ -41,6 +45,10 @@ class ReviewsController < ApplicationController
 
   def set_review_params
     @review = Review.find(params[:id])
+  end
+
+  def redirect_different_user
+    redirect_to root_path unless current_user.id == @review.user_id
   end
 
 end

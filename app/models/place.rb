@@ -1,8 +1,6 @@
 class Place < ApplicationRecord
   
   has_many :reviews
-  has_many :place_users
-  has_many :users, through: :place_users
   has_one_attached :image
   
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -13,7 +11,7 @@ class Place < ApplicationRecord
   belongs_to :wifi
 
   with_options presence: true do
-    validates :place_name, uniqueness: true
+    validates :place_name, uniqueness: { case_sensitive: true }
     validates :image
     validates :carrier
   end
