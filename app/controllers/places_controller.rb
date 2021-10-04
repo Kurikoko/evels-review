@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  
+  before_action :authenticate_user!, only:[:new]
   before_action :set_params, only: [:show]
   before_action :set_q, only: [:search]
 
