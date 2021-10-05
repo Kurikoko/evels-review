@@ -1,8 +1,7 @@
 class Place < ApplicationRecord
-  
   has_many :reviews
   has_one_attached :image
-  
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :area
   belongs_to :line_kinds
@@ -16,12 +15,11 @@ class Place < ApplicationRecord
     validates :carrier
   end
 
-  with_options numericality: {other_than: 1, message: "が選択されていません"} do
+  with_options numericality: { other_than: 1, message: 'が選択されていません' } do
     validates :area_id
     validates :line_kinds_id
     validates :fee_id
     validates :backup_line_id
     validates :wifi_id
   end
-
 end

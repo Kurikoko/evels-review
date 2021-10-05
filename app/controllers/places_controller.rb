@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :authenticate_user!, only:[:new]
+  before_action :authenticate_user!, only: [:new]
   before_action :set_params, only: [:show]
   before_action :set_q, only: [:search]
 
@@ -21,23 +21,24 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @reviews = Review.where( "place_id = #{@place.id}").order(created_at: :DESC).page(params[:page]).per(5)
-    @reviews_all = Review.where( "place_id = #{@place.id}").order(created_at: :DESC)
+    @reviews = Review.where("place_id = #{@place.id}").order(created_at: :DESC).page(params[:page]).per(5)
+    @reviews_all = Review.where("place_id = #{@place.id}").order(created_at: :DESC)
 
-    if @place.reviews.exists?(place_id: "#{@place.id}")
-      @download_ave =  @reviews_all.average(:download).round(2)
-      @upload_ave =  @reviews_all.average(:upload).round(2)
+    if @place.reviews.exists?(place_id: @place.id.to_s)
+      @download_ave = @reviews_all.average(:download).round(2)
+      @upload_ave = @reviews_all.average(:upload).round(2)
     end
   end
 
   def search
     @results = @q.result.order(created_at: :DESC).page(params[:page]).per(3)
-    @searched_area = Area.find_by(id: "#{@q.area_id_eq}")
+    @searched_area = Area.find_by(id: @q.area_id_eq.to_s)
   end
 
   private
+
   def place_params
-    params.require(:place).permit(:image,:area_id,:place_name, :carrier, :line_kinds_id, :fee_id, :backup_line_id, :wifi_id)
+    params.require(:place).permit(:image, :area_id, :place_name, :carrier, :line_kinds_id, :fee_id, :backup_line_id, :wifi_id)
   end
 
   def set_params
