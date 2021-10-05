@@ -3,10 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many :reviews
 
   validates :name, presence: true
   validates :password,
-            format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message:"は英数字を含んだ形にしてください"}
+            format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'は英数字を含んだ形にしてください' }
 end
