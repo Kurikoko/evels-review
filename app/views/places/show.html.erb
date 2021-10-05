@@ -140,7 +140,7 @@
             <%= link_to "編集", edit_place_review_path(@place.id, review.id), class:'btn btn-outline-info' %>
           </div>
           <div class= "detail-review-custom-btn">
-            <%= link_to "削除", place_review_path(@place.id, review.id), method: :delete, data: { confirm: "削除しますか"},class:'btn btn-outline-info ' %>
+            <%= link_to "削除", place_review_path(@place.id, review.id), method: :delete, data: { confirm: "削除しますか?"},class:'btn btn-outline-info ' %>
           </div>
         </div>
         <% end %>

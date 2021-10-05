@@ -32,6 +32,6 @@
     <p class="create-title">コメント</p>
       <%= f.text_area :comment, id: "comment", class: "form-control w-50 h-75", placeholder: "1000文字まで", rows: "7", maxlength: "1000" %>
   </div>
-  <%= f.submit "レビュー", class: "create-btn btn btn-outline-info" %>
+  <%= f.submit "レビュー編集", class: "create-btn btn btn-outline-info" %>
   <%= link_to "もどる", place_path(@review.place_id), class: "create-btn btn btn-outline-secondary" %>
 <% end %>
