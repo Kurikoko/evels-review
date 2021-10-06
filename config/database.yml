@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: evels_review_production
-  username: evels_review
-  password: <%= ENV['EVELS_REVIEW_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql.sock
