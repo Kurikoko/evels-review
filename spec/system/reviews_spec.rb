@@ -162,7 +162,7 @@ RSpec.describe 'レビュー削除', type: :system do
       # 登録した会場のタイトルをクリックして詳細ページへ遷移する
       click_link(@place.place_name.to_s)
       expect(current_path).to eq(place_path(@place.id))
-      # レビュー2に「編集」ボタンがないことを確認する
+      # レビュー2に「削除」ボタンがないことを確認する
       expect(page).to have_no_link '削除', href: place_review_path(@place.id, @review2.id)
     end
     it 'ログインしていないユーザーはレビュー削除できない' do
@@ -171,7 +171,7 @@ RSpec.describe 'レビュー削除', type: :system do
       # 登録した会場のタイトルをクリックして詳細ページへ遷移する
       click_link(@place.place_name.to_s)
       expect(current_path).to eq(place_path(@place.id))
-      # レビュー1に「編集」ボタンがないことを確認する
+      # レビュー1に「削除」ボタンがないことを確認する
       expect(page).to have_no_link '削除', href: place_review_path(@place.id, @review1.id)
     end
   end
