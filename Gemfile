@@ -75,4 +75,3 @@ gem 'kaminari'
 gem 'ransack'
 gem 'devise-i18n'
 gem 'aws-sdk-s3', require: false
-
