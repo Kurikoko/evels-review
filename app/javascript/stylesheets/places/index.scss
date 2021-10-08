@@ -17,7 +17,7 @@
   box-sizing: border-box;
   color: black;
   text-shadow: 3px 4px 1px rgb(244, 248, 192);
-  font-size: 3vw;
+  font-size: 45px;
   font-family: serif;
 }
 
@@ -28,14 +28,15 @@
   justify-content: center;
   color: black;
   text-shadow: 1px 1px 1px rgb(244, 248, 192);
-  font-size: 1vw;
+  font-size: 25px;
   font-family: serif;
 }
 
 .emphasize {
-  font-size: 1.8vw;
+  font-size: 35px;
   color: #2528ee;
 }
+
 
 /// ミドルコンテンツ
 .middle-wrapper {
@@ -85,6 +86,7 @@
   justify-content: space-between;
   box-sizing: border-box;
   padding: 3% 0;
+  margin: 0 2%;
 }
 
 .middle-item-title, .middle-item-text {
@@ -110,13 +112,9 @@
   align-items: center;
 }
 
-.fa-tachometer-alt {
+.fa-tachometer-alt,.fa-comments {
   color: #007bff;
   font-size: 150px;
-}
-.fa-comments {
-  font-size: 150px;
-  color: #007bff;
 }
 
 /// エリアコンテンツ
@@ -132,7 +130,6 @@
 .areas {
   height: 80%;
   width: 70%;
-  border-radius: 10px;
 }
 .area-title-container {
   width: 70%;
@@ -155,7 +152,7 @@
   display: flex;
   height: 20%;
   align-items: center;
-  font-size: 1.1vw;
+
   margin: 1% 0;
   
 }
@@ -166,7 +163,6 @@
   box-sizing: border-box;
   padding: 0.5% 2%;
   border: 1px solid rgb(214, 214, 214);
-
 }
 
 /// 新着会場情報コンテンツ
@@ -190,7 +186,6 @@
 .place-lists {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 90%;
 }
@@ -267,11 +262,9 @@
   color: black;
   font-family: serif;
   border-bottom: 1px solid black;
-
 }
 
 .place-name:hover, .place-area-name:hover {
-  text-decoration: none;
   color: gray;
 }
 
@@ -349,10 +342,12 @@
   align-items: center;
   height: 100%;
   font-size: 1vw;
+ 
 }
 
 .send-show {
   font-size: 1vw;
+  overflow-wrap: break-word;
 }
 
 .place-bottom-right {
@@ -363,7 +358,6 @@
 .info-items {
   display: flex;
   height: 100%;
-  display: flex;
   align-items: center;
 }
 
@@ -409,3 +403,279 @@
   overflow-wrap: normal;
 }
 
+// タブレット表示時
+@media (orientation: portrait)and(max-width:1000px) {
+  // タイトルコンテンツ
+  .main-explain {
+    font-size: 30px;
+  }
+  .sub-contents {
+    font-size: 20px;
+  }
+  .emphasize {
+    font-size: 25px;
+  }
+  // ミドルコンテンツ
+  .middle-wrapper {
+    height: 50vh;
+  }
+  .middle-contents {
+    height: 95%;
+  }
+  .middle-item {
+    box-sizing: border-box;
+    padding: 1% 0;
+    border: 1px solid rgb(224, 223, 223);
+  }
+  .middle-item-title{
+    font-size: 20px;
+  }
+  .icon {
+    height: 50%;
+  }
+  .fa-tachometer-alt,.fa-comments {
+    font-size: 100px;
+  }
+  .middle-item-text  {
+    height: 30%;
+    font-size: 16px;
+  }
+  // エリアコンテンツ
+  .area-container {
+    height: 20vh;
+  }
+  .areas {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } 
+    // place-list
+    .place-list {
+      height: 30vh;
+  
+    }
+  // place-bottom
+  .place-bottoms {
+    border-radius: 40px;
+    padding: 3px;
+  }
+  .speed-container {
+    padding: 5px;
+  }
+  .speed-title {
+    font-size: 8px;
+    overflow-wrap: break-word;
+  }
+  .speed-mbps {
+    font-size: 10px;
+  }
+  .info-item {
+    font-size: 10px;
+  }
+  .info-text {
+    top: 2px;
+    left: 2px;
+    font-size: 4px;
+    border-bottom: none;
+  }
+}
+@media (orientation: landscape)and(max-height:800px) {
+  // エリア
+  .areas {
+    width: 95%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } 
+
+  // place-bottom
+  .place-bottoms {
+    border-radius: 40px;
+  }
+  .speed-container {
+    padding: 5px;
+  }
+}
+
+// スマートフォン表示時
+@media (orientation: portrait)and(max-width:500px) {
+  // タイトルコンテンツ
+  .title-contents {
+    height: 20vh;
+  }
+  .main-explain {
+    font-size: 17px;
+  }
+  .sub-contents {
+    font-size: 13px;
+  }
+  .emphasize {
+    font-size: 15px;
+  }
+  // ミドルコンテンツ
+  .middle-wrapper {
+    height: 35vh;
+  }
+  .middle-contents {
+    width: 95%;
+  }
+  .logo-style {
+    font-size: 20px;
+  }
+  .middle-item-title{
+    font-size: 15px;
+  }
+
+  .fa-tachometer-alt,.fa-comments {
+    font-size: 80px;
+ 
+  }
+  .middle-item-text  {
+    height: 50%;
+    font-size: 6px;
+  }
+  // エリアコンテンツ
+  .area-container {
+    height: 30vh;
+  }
+  .areas {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  } 
+  .area-item {
+    font-size: 7px;
+  }
+  // place-content
+  .place-contents {
+    width: 100%;
+  }
+  .place-lists {
+    padding-left:0 ;
+  }
+ .place-list {
+    width: 100%;
+  }
+  // place-bottom
+  .place-bottoms {
+    border-radius: 10px;
+    padding: 1px;
+  }
+  .line-speed {
+    background-color: white;
+    border-radius: 1px;
+  }
+  .speed-container {
+    padding: 0px;
+    align-items: flex-start;
+  }
+  .speed-title {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .place-bottom-left  {
+    width: 50%;
+  }
+
+  .speed-mbps {
+    font-size: 10px;
+  }
+  .none-review-container {
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center;
+  }
+  
+  .info-items {
+    flex-direction: column;
+  }
+
+  .info-text {
+    top: 0px;
+    left: 0px;
+    border-bottom: none;
+  }
+  .info-item {
+    overflow-x: scroll;
+    border-radius: 0px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (orientation: landscape)and(max-height:500px) {
+  // タイトルコンテンツ
+  .main-explain {
+    font-size: 25px;
+  }
+  .sub-contents {
+    font-size: 15px;
+  }
+  .emphasize {
+    font-size: 20px;
+  }
+  // ミドルコンテンツ
+  .middle-wrapper {
+    height: 60vh;
+  }
+  .middle-contents {
+    width: 95%;
+  }
+  .middle-item-title{
+    font-size: 15px;
+  }
+  .middle-item-text {
+    font-size: 13px;
+  }
+
+  .fa-tachometer-alt,.fa-comments {
+    display: none;
+  }
+
+  // place-bottom
+  .place-bottoms {
+    border-radius: 40px;
+    padding: 3px;
+  }
+  .line-speed {
+    background-color: white;
+    border-radius: 1px;
+  }
+  .speed-container {
+    padding: 0px;
+    align-items: flex-start;
+  }
+  .speed-title {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .speed-mbps {
+    font-size: 10px;
+  }
+  .none-review-container {
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center;
+  }
+  
+  .info-text {
+    top: 0px;
+    left: 0px;
+    border-bottom: none;
+  }
+  .info-item {
+    overflow-x: scroll;
+    border-radius: 0px;
+    height: 100%;
+  }
+}

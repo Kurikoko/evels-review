@@ -10,6 +10,12 @@
 @import 'devise/sign_in';
 @import 'devise/sign_up';
 
+// 全体のデザイン
+
+a {
+  text-decoration: none;
+}
+
 // ページネーション自体のデザイン
 .pagination>li>a {          
   border: none;     /*枠線をなくす*/

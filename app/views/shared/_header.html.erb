@@ -1,27 +1,27 @@
-
-<nav class="navbar navbar{-sm|md|-lg|-xl|-xxl} navbar-light bg-light justify-content-between" style= "height :10vh">
-  <div class="navbar-brend nav-logo" >
-    <%= link_to 'Evels Tokyo', "/", class: "nav-link logo" %>
-  </div>
-      <ul class="nav nav-right" >
+<nav class=" navbar navbar{-sm|md|-lg|-xl|-xxl} navbar-light bg-light d-flex justify-content-between align-items-center">
+  <p class="navbar-brend nav-logo" >
+    <%= link_to 'Evels Tokyo', "/", class: "logo" %>
+  </p>
+    <ul class="nav nav-right" >
       <% if user_signed_in? %>
-        <li class="btn btn-sm btn-white " style="font-size :0.8vw"><%= link_to  new_place_path, class: "nav-link text-dark" do%>
-        <p>会場登録</p>
+        <li class="btn btn-sm btn-white " ><%= link_to  new_place_path, class: "nav-link text-dark" do%>
+        <p class="text" >会場登録</p>
         <i class="fas fa-hotel"></i><% end %></li>
-        <li class="btn btn-sm btn-white" style="font-size :0.8vw"><%= link_to  "/users/#{current_user.id}", class: "nav-link text-dark" do %>
-        <p><%= current_user.name %></p>
+        <li class="btn btn-sm btn-white" ><%= link_to  "/users/#{current_user.id}", class: "nav-link text-dark" do %>
+        <p class="text" ><%= current_user.name %></p>
         <i class="fas fa-user"></i><% end %></li>
-        <li class="btn btn-sm btn-white"  style="font-size :0.8vw"><%= link_to  destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
-        <p>ログアウト</p>
+        <li class="btn btn-sm btn-white" ><%= link_to  destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
+        <p class="text" >ログアウト</p>
         <i class="fas fa-sign-out-alt"></i><% end %></li>
       <% else %>
-        <li class="btn btn-sm btn-white"  style="font-size :0.8vw"><%= link_to new_user_session_path, class: "nav-link text-dark" do %>
-        <p>ログイン</p>
+        <li class="btn btn-sm btn-white" ><%= link_to new_user_session_path, class: "nav-link text-dark" do %>
+        ログイン<br/>
         <i class="fas fa-sign-in-alt"></i><% end %></li>
-        <li class="btn btn-sm btn-white"  style="font-size :0.8vw"><%= link_to new_user_registration_path, class: "nav-link text-dark" do %>
-        <p>新規登録</p>
+        <li class="btn btn-sm btn-white" ><%= link_to new_user_registration_path, class: "nav-link text-dark" do %>
+        新規登録<br/>
         <i class="fas fa-user-plus"></i><% end %></li>
       <% end %>
-      </ul>
+    </ul>
   </div>
 </nav>
+

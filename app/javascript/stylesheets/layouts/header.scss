@@ -1,21 +1,51 @@
 // ヘッダーCSS
 .logo {
-  font-size: 2.2vw;
+  font-size: 50px;
   font-family: sans-serif;
   margin-left: 40px;
   letter-spacing: 0.08em;
   font-weight: 150;
 }
 
+.nav-link  {
+  font-size: 15px;
+}
 .nav-logo {
   margin: 0 0 0 20px;
 }
 
 .nav-right {
   margin-right: 50px;
-  font-style:inherit;
 }
 
 .btn-white:hover {
   opacity: 0.6;
+}
+
+
+// タブレット表示時
+@media (max-width:1000px) {
+  .logo {
+    font-size: 35px;
+  }
+  .nav-right {
+    margin-right: 3px;
+  }
+}
+
+// スマートフォン表示時
+@media (max-width:500px) {
+  .logo {
+    font-size: 20px;
+    margin-left: 3px;
+  }
+  .nav-link {
+    font-size: 15px; 
+  }
+  .text {
+    display: none;
+  }
+  .nav-right {
+    margin-right: 3px;
+  }
 }
