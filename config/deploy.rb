@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.16.0"
 
-set :application, "evels-tokyo"
+set :application, "evels-review"
 set :repo_url, "git@github.com:Kurikoko/evels-review.git"
 
 # バージョンが変わっても共通で参照するディレクトリを指定
