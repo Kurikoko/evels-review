@@ -71,8 +71,8 @@
     height: 60%;
   }
 }
-// タブレット横
-@media (orientation: landscape)and(max-height:1000px) {
+// // タブレット横
+@media (orientation: landscape)and(max-height:768px) {
   .devise-main {
     width: 80%;
     height: 90%;
