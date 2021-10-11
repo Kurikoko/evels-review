@@ -65,7 +65,7 @@ a {
 
 // footer CSS
 .footer {
-  height: 10vh;
+  height: 15vh;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -80,4 +80,13 @@ a {
 .footer-logo:hover {
   text-decoration: none;
   opacity: 0.8;
+}
+
+.devise-footer {
+  height: 10vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-bottom: 2%;
 }
