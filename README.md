@@ -103,10 +103,10 @@ http://localhost:3000
 - フロントエンド
   - jquery 3.6.0
   - bootstrap 5.1.2
-  - HTML/ Scss/ slick
+  - HTML/ Scss/ slick/ kaminari
 - バックエンド
   - Ruby 2.6.5
   - Rails 6.0.4.1
   - Rspec-rails 4.0.0
-  - ransack / kaminari
+  - ransack 
 
