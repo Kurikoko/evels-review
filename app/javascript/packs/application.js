@@ -7,11 +7,11 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require('jquery')
-require('image-change.js')
-require('slick.js')
-require('preview-text.js');
-
-
+require('src/image-change.js')
+require('src/slick.js')
+require('src/preview-text.js');
+require('src/fade-in-words.js');
+require('src/font-change.js');
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

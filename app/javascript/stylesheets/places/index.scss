@@ -1,7 +1,7 @@
 // トップページCSS
 /// タイトルコンテンツ
 .title-contents {
-  height: 32vh;
+  height: 28vh;
   text-align: center;
   background-color: #FFF;
   margin: 2% 0;
@@ -9,6 +9,7 @@
 .main-title {
   height: 60%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -35,8 +36,13 @@
 .emphasize {
   font-size: 35px;
   color: #2528ee;
+  opacity: 0;
+  transition: all 2000ms;
 }
 
+.emphasize.fadeIn {
+  opacity: 1;
+}
 
 /// ミドルコンテンツ
 .middle-wrapper {
@@ -62,10 +68,10 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  font-size: 30px;
 }
 
 .logo-style {
-  font-size: 30px;
   color: #007bff;
   letter-spacing: 0.08em;
   font-weight: 250;
@@ -419,6 +425,9 @@
   .middle-wrapper {
     height: 50vh;
   }
+  .middle-wrapper-title {
+    font-size: 22px;
+   }
   .middle-contents {
     height: 95%;
   }
@@ -522,8 +531,8 @@
   .middle-contents {
     width: 95%;
   }
-  .logo-style {
-    font-size: 20px;
+  .middle-wrapper-title {
+    font-size: 12px;
   }
   .middle-item-title{
     font-size: 15px;
@@ -627,6 +636,9 @@
   }
   .middle-contents {
     width: 95%;
+  }
+  .middle-wrapper-title {
+    font-size: 20px;
   }
   .middle-item-title{
     font-size: 15px;
